@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://ca2sradfan2sr"]
+[gd_scene load_steps=2 format=3 uid="uid://ca2sradfan2sr"]
+
+[ext_resource type="Script" uid="uid://d32j5pdvmre3t" path="res://UI/camera_base.gd" id="1_btjk8"]
 
 [node name="CameraBase" type="Camera2D"]
+script = ExtResource("1_btjk8")
