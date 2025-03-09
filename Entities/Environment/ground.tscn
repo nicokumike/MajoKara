@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://y56dift1p0bn"]
+
+[node name="Ground" type="Node2D"]
