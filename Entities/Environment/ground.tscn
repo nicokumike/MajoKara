@@ -17,6 +17,5 @@ for the zoom to work."
 autowrap_mode = 3
 
 [node name="Line2D" type="Line2D" parent="."]
-position = Vector2(88, 328)
 points = PackedVector2Array(-5000, 0, 5000, 0)
 width = 2.0

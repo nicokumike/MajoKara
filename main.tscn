@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://coals5d42dy5e"]
+[gd_scene load_steps=17 format=3 uid="uid://coals5d42dy5e"]
 
 [ext_resource type="PackedScene" uid="uid://y56dift1p0bn" path="res://Entities/Environment/ground.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ca2sradfan2sr" path="res://UI/camera_base.tscn" id="2_7mycd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://ceuu8pdqrimu1" path="res://wobbly.gdshader" id="7_kek77"]
 [ext_resource type="Texture2D" uid="uid://n6dsu6txug45" path="res://Assets/Entities/Environment/WiggleBox.png" id="8_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cf202cmmh7eep" path="res://Assets/Entities/Buildings/WitchesHouse1.png" id="9_efxa6"]
+[ext_resource type="PackedScene" uid="uid://b0y64d8gapnei" path="res://Entities/Ojamajos/ojamajo.tscn" id="10_4c57u"]
 
 [sub_resource type="Animation" id="Animation_272bh"]
 resource_name = "Cutscene1"
@@ -409,9 +410,13 @@ shader_parameter/frames = 10
 [node name="Main" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_lquwl")]
+position = Vector2(288, 972)
 
 [node name="CameraBase" parent="." instance=ExtResource("2_7mycd")]
-position = Vector2(320, 180)
+position = Vector2(859, 806)
+zoom = Vector2(4, 4)
+limit_bottom = 1188
+position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -471,3 +476,6 @@ texture_progress = ExtResource("8_4c57u")
 [node name="WitchesHouse1" type="Sprite2D" parent="Cutscenes"]
 position = Vector2(206, 295)
 texture = ExtResource("9_efxa6")
+
+[node name="Ojamajo" parent="." instance=ExtResource("10_4c57u")]
+position = Vector2(835, 913)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0y64d8gapnei"]
+
+[ext_resource type="Script" uid="uid://d2chctnef3etr" path="res://Entities/Ojamajos/ojamajo.gd" id="1_2wq28"]
+[ext_resource type="Texture2D" uid="uid://brxwmhx0my20x" path="res://GameIcon.png" id="2_a7tre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx4px"]
+size = Vector2(84, 76)
+
+[node name="Ojamajo" type="CharacterBody2D" groups=["ojamajo"]]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_2wq28")
+
+[node name="GameIcon" type="Sprite2D" parent="."]
+texture = ExtResource("2_a7tre")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_nx4px")
