@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://g8abk264gjw4"]
+
+[ext_resource type="FontFile" uid="uid://cxbu7mq3tdt0i" path="res://Assets/Fonts/Silver.ttf" id="1_fh2bx"]
+
+[resource]
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("1_fh2bx")
