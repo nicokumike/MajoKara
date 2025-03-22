@@ -6,15 +6,17 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Ground" parent="." instance=ExtResource("1_lquwl")]
-position = Vector2(288, 972)
-
 [node name="CameraBase" parent="." instance=ExtResource("2_7mycd")]
-position = Vector2(859, 806)
+position = Vector2(320, 180)
 limit_bottom = 1188
-position_smoothing_enabled = true
 
 [node name="Ojamajo" parent="." instance=ExtResource("10_4c57u")]
-position = Vector2(835, 913)
+
+[node name="Ground" parent="." instance=ExtResource("1_lquwl")]
+
+[node name="Resize_Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Resize_Timer" to="CameraBase" method="_on_resize_timer_timeout"]
+[connection signal="timeout" from="Resize_Timer" to="Ground" method="_on_resize_timer_timeout"]
