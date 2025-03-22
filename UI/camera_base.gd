@@ -27,23 +27,12 @@ func _ready():
 	pass
 
 func resize():
+	#Resizing halted for performance probably i dunno XP
 	resize_timer.start()
-	print("currently resizing")
-	print(get_viewport().get_visible_rect().size.x)
-	print(get_viewport().get_visible_rect().size.y)
 	
 func _process(_delta):
-	#Get correct camera position and offset based on window size, in case of resizing
-	#if get_viewport().get_visible_rect().size != window_size:
-		#window_offset.y += window_size.y - get_viewport().get_visible_rect().size.y
-		#window_size = get_viewport().get_visible_rect().size
-		#position = window_size / 2
-		#offset = window_offset
-		
 	#Zoom camera
 	zoom = Vector2(zoom_factor, zoom_factor)
-	
-	#Offset the camera to maintain relative position
 	zoom_math()
 			
 	#Change current camera zoom
@@ -54,24 +43,18 @@ func _process(_delta):
 		if zoom_factor != 1:
 			zoom_factor = zoom_factor / 2
 
-
 func _on_resize_timer_timeout():
 	zoom_math()
 	
 func zoom_math():
 	match zoom_factor:
 		1:
-			position.y = get_viewport().get_visible_rect().size.y / 2
 			offset = window_offset
+			position.y = get_viewport().get_visible_rect().size.y / 2
 		2:
-			#camera_base.offset = Vector2(0.0, 74.0)
 			offset = window_offset + Vector2(0.0, (get_viewport().get_visible_rect().size.y / 4 - 16))
 			position.y = get_viewport().get_visible_rect().size.y / 2
-			#position.y = get_viewport().get_visible_rect().size.y / 2
 		4: 
-			#ZOOM IN MAX
-			#camera_base.offset = Vector2(0.0, 111.0)
-			#offset = window_offset + Vector2(0.0, (window_size.y * 3/8 - window_size.y / 10) * 1.1)
 			offset = window_offset + Vector2(0.0, (get_viewport().get_visible_rect().size.y * 3/8 - 24))
 			position.y = get_viewport().get_visible_rect().size.y / 2
 	
