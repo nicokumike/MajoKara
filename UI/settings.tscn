@@ -1,27 +1,64 @@
-[gd_scene load_steps=11 format=3 uid="uid://bp63b4jst0q7r"]
+[gd_scene load_steps=22 format=3 uid="uid://bp63b4jst0q7r"]
 
 [ext_resource type="Texture2D" uid="uid://57coq20jjur2" path="res://Assets/UI/resize.png" id="1_fb0e8"]
+[ext_resource type="Script" uid="uid://b4el1pyodj2ha" path="res://UI/settings.gd" id="1_sxqi7"]
 [ext_resource type="Texture2D" uid="uid://bq67khybdjo5t" path="res://Assets/UI/sound.png" id="2_lgafb"]
+[ext_resource type="Script" uid="uid://dolsklnn71gqq" path="res://UI/button_effects.gd" id="3_meugl"]
 [ext_resource type="Texture2D" uid="uid://cg8l50j21y4f2" path="res://Assets/UI/save.png" id="3_ww78k"]
 [ext_resource type="Texture2D" uid="uid://cclwd7tetkape" path="res://Assets/UI/about.png" id="4_q4n24"]
 [ext_resource type="Texture2D" uid="uid://be1ar03gqvf0b" path="res://Assets/UI/quit.png" id="5_ba51m"]
 [ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="6_q4n24"]
 [ext_resource type="Texture2D" uid="uid://bq74mwa4la5ir" path="res://Assets/UI/NinePatchBox.png" id="7_ba51m"]
 [ext_resource type="Texture2D" uid="uid://yy7njkdgesmm" path="res://Assets/UI/BoxTail.png" id="8_qrduu"]
+[ext_resource type="Texture2D" uid="uid://oksowke0cvyq" path="res://Assets/UI/sliderhead.png" id="9_opicb"]
+[ext_resource type="Texture2D" uid="uid://ce3n6dgqprf6s" path="res://Assets/UI/arrow2.png" id="10_ioe6w"]
+[ext_resource type="Texture2D" uid="uid://drjg73yts6a7u" path="res://Assets/UI/sliderbodyunfilled.png" id="10_sxqi7"]
+[ext_resource type="Texture2D" uid="uid://5r5q3ybsp4o8" path="res://Assets/UI/arrow.png" id="11_meugl"]
+[ext_resource type="Texture2D" uid="uid://wnxh2tb7nmyg" path="res://Assets/UI/sliderbodyfilled.png" id="11_vh4ik"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_qrduu"]
 allow_unpress = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opicb"]
-bg_color = Color(0.134, 0.08, 0.2, 1)
+bg_color = Color(0.207843, 0.156863, 0.270588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_opicb"]
+texture = ExtResource("11_vh4ik")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vh4ik"]
+texture = ExtResource("11_vh4ik")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxqi7"]
+texture = ExtResource("10_sxqi7")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_opicb"]
+HSlider/icons/grabber = ExtResource("9_opicb")
+HSlider/icons/grabber_disabled = ExtResource("9_opicb")
+HSlider/icons/grabber_highlight = ExtResource("9_opicb")
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_opicb")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_vh4ik")
+HSlider/styles/slider = SubResource("StyleBoxTexture_sxqi7")
 
 [node name="Settings" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
+script = ExtResource("1_sxqi7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -40,97 +77,81 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="UiScaleButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_fb0e8")
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/TextureRect"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
+texture_normal = ExtResource("1_fb0e8")
+texture_pressed = ExtResource("1_fb0e8")
+texture_hover = ExtResource("1_fb0e8")
+texture_disabled = ExtResource("1_fb0e8")
+texture_focused = ExtResource("1_fb0e8")
+script = ExtResource("3_meugl")
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="SoundButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_lgafb")
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/TextureRect2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
+texture_normal = ExtResource("2_lgafb")
+texture_pressed = ExtResource("2_lgafb")
+texture_hover = ExtResource("2_lgafb")
+texture_disabled = ExtResource("2_lgafb")
+texture_focused = ExtResource("2_lgafb")
+script = ExtResource("3_meugl")
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="SaveButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_ww78k")
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/TextureRect3"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
+texture_normal = ExtResource("3_ww78k")
+texture_pressed = ExtResource("3_ww78k")
+texture_hover = ExtResource("3_ww78k")
+texture_disabled = ExtResource("3_ww78k")
+texture_focused = ExtResource("3_ww78k")
+script = ExtResource("3_meugl")
 
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="InfoButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("4_q4n24")
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/TextureRect4"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
+texture_normal = ExtResource("4_q4n24")
+texture_pressed = ExtResource("4_q4n24")
+texture_hover = ExtResource("4_q4n24")
+texture_disabled = ExtResource("4_q4n24")
+texture_focused = ExtResource("4_q4n24")
+script = ExtResource("3_meugl")
 
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_ba51m")
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/TextureRect5"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
+texture_normal = ExtResource("5_ba51m")
+texture_pressed = ExtResource("5_ba51m")
+texture_hover = ExtResource("5_ba51m")
+texture_disabled = ExtResource("5_ba51m")
+texture_focused = ExtResource("5_ba51m")
+script = ExtResource("3_meugl")
 
-[node name="Label" type="Label" parent="."]
+[node name="UiScale" type="Label" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 498.0
-offset_top = 44.0
-offset_right = -134.0
-offset_bottom = -253.0
+offset_left = -149.0
+offset_top = 39.0
+offset_right = -43.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme = ExtResource("6_q4n24")
-text = "Resize Options"
 vertical_alignment = 1
+visible_characters = 0
+visible_ratio = -0.0175439
 
-[node name="MarginContainer" type="MarginContainer" parent="Label"]
+[node name="MarginContainer" type="MarginContainer" parent="UiScale"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,7 +163,7 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Label/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="UiScale/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("7_ba51m")
 patch_margin_left = 1
@@ -150,7 +171,109 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Label/MarginContainer/NinePatchRect"]
+[node name="PanelContainer" type="PanelContainer" parent="UiScale/MarginContainer/NinePatchRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
+
+[node name="BoxTail" type="Sprite2D" parent="UiScale"]
+position = Vector2(51, -1)
+rotation = -3.14159
+texture = ExtResource("8_qrduu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UiScale"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UiScale/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "UI Scale"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+layout_mode = 2
+
+[node name="UiScaleDown" type="TextureButton" parent="UiScale/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture_normal = ExtResource("10_ioe6w")
+texture_pressed = ExtResource("10_ioe6w")
+texture_hover = ExtResource("10_ioe6w")
+texture_disabled = ExtResource("10_ioe6w")
+texture_focused = ExtResource("10_ioe6w")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+layout_mode = 2
+
+[node name="ScaleLabel" type="Label" parent="UiScale/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "2x"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+layout_mode = 2
+
+[node name="UiScaleUp" type="TextureButton" parent="UiScale/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_meugl")
+texture_pressed = ExtResource("11_meugl")
+texture_hover = ExtResource("11_meugl")
+texture_disabled = ExtResource("11_meugl")
+texture_focused = ExtResource("11_meugl")
+
+[node name="SoundSettings" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 39.0
+offset_right = -22.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("6_q4n24")
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="SoundSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -5
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -5
+theme_override_constants/margin_bottom = -5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SoundSettings/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_ba51m")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="SoundSettings/MarginContainer/NinePatchRect"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -161,7 +284,77 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
-[node name="BoxTail" type="Sprite2D" parent="."]
-position = Vector2(538, 0)
+[node name="BoxTail" type="Sprite2D" parent="SoundSettings"]
+position = Vector2(51, -1)
 rotation = -3.14159
 texture = ExtResource("8_qrduu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SoundSettings"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SoundSettings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Sounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SoundSettings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sound" type="HSlider" parent="SoundSettings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_opicb")
+max_value = 9.0
+
+[node name="Sound2" type="HSlider" parent="SoundSettings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_opicb")
+max_value = 9.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="SoundSettings/HBoxContainer"]
+layout_mode = 2
+
+[node name="SoundLabel" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "0"
+
+[node name="SoundLabel2" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "0"
+
+[connection signal="toggled" from="MarginContainer/HBoxContainer/UiScaleButton" to="." method="_on_ui_scale_button_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/UiScaleButton" to="MarginContainer/HBoxContainer/UiScaleButton" method="_on_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/SoundButton" to="MarginContainer/HBoxContainer/SoundButton" method="_on_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/SaveButton" to="MarginContainer/HBoxContainer/SaveButton" method="_on_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/InfoButton" to="MarginContainer/HBoxContainer/InfoButton" method="_on_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/QuitButton" to="MarginContainer/HBoxContainer/QuitButton" method="_on_toggled"]
+[connection signal="pressed" from="UiScale/HBoxContainer/VBoxContainer4/UiScaleDown" to="." method="_on_ui_scale_down_pressed"]
+[connection signal="pressed" from="UiScale/HBoxContainer/VBoxContainer/UiScaleUp" to="." method="_on_ui_scale_up_pressed"]
+[connection signal="changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound" to="." method="_on_h_slider_changed"]
+[connection signal="value_changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound" to="." method="_on_ui_scale_slider_value_changed"]
+[connection signal="changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound2" to="." method="_on_h_slider_changed"]
+[connection signal="value_changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound2" to="." method="_on_ui_scale_slider_value_changed"]

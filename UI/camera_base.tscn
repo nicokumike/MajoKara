@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://d32j5pdvmre3t" path="res://UI/camera_base.gd" id="1_btjk8"]
 
 [node name="CameraBase" type="Camera2D"]
+position_smoothing_enabled = true
 script = ExtResource("1_btjk8")

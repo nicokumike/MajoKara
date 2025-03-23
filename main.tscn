@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://coals5d42dy5e"]
+[gd_scene load_steps=5 format=3 uid="uid://coals5d42dy5e"]
 
 [ext_resource type="PackedScene" uid="uid://y56dift1p0bn" path="res://Entities/Environment/ground.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ca2sradfan2sr" path="res://UI/camera_base.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bp63b4jst0q7r" path="res://UI/settings.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b0y64d8gapnei" path="res://Entities/Ojamajos/ojamajo.tscn" id="10_4c57u"]
 
 [node name="Main" type="Node2D"]
@@ -17,6 +18,15 @@ limit_bottom = 1188
 [node name="Resize_Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("4_1bvp3")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
 
 [connection signal="timeout" from="Resize_Timer" to="CameraBase" method="_on_resize_timer_timeout"]
 [connection signal="timeout" from="Resize_Timer" to="Ground" method="_on_resize_timer_timeout"]
