@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bp63b4jst0q7r"]
+[gd_scene load_steps=24 format=3 uid="uid://bp63b4jst0q7r"]
 
 [ext_resource type="Texture2D" uid="uid://57coq20jjur2" path="res://Assets/UI/resize.png" id="1_fb0e8"]
 [ext_resource type="Script" uid="uid://b4el1pyodj2ha" path="res://UI/settings.gd" id="1_sxqi7"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://drjg73yts6a7u" path="res://Assets/UI/sliderbodyunfilled.png" id="10_sxqi7"]
 [ext_resource type="Texture2D" uid="uid://5r5q3ybsp4o8" path="res://Assets/UI/arrow.png" id="11_meugl"]
 [ext_resource type="Texture2D" uid="uid://wnxh2tb7nmyg" path="res://Assets/UI/sliderbodyfilled.png" id="11_vh4ik"]
+[ext_resource type="Texture2D" uid="uid://dao16alc3o2pa" path="res://Assets/UI/autosave1.png" id="16_5scca"]
+[ext_resource type="Texture2D" uid="uid://by8tqa0nkbfk6" path="res://Assets/UI/autosave2.png" id="17_ridfr"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_qrduu"]
 allow_unpress = true
@@ -149,7 +151,7 @@ size_flags_vertical = 1
 theme = ExtResource("6_q4n24")
 vertical_alignment = 1
 visible_characters = 0
-visible_ratio = -0.0175439
+visible_ratio = 0.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UiScale"]
 layout_mode = 1
@@ -345,10 +347,234 @@ text = "0"
 layout_mode = 2
 text = "0"
 
+[node name="SaveSettings" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 39.0
+offset_right = -22.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("6_q4n24")
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="SaveSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.98
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -5
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -5
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_ba51m")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/NinePatchRect"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
+
+[node name="MarginContainer" type="MarginContainer" parent="SaveSettings/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SaveButtonLabel" type="Label" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = " Save "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.81
+offset_bottom = -0.0100021
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ba51m")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
+
+[node name="SaveButton" type="Button" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveTimer" type="Timer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
+wait_time = 0.25
+
+[node name="ReturnTimer" type="Timer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
+one_shot = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme_override_constants/separation = -1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Auto Save "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.81
+offset_bottom = -0.0100021
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ba51m")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2/Label/NinePatchRect"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
+
+[node name="MarginContainer2" type="MarginContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2"]
+custom_minimum_size = Vector2(17, 17)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("7_ba51m")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
+
+[node name="AutoSaveButton" type="Button" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+button_pressed = true
+
+[node name="AutoSaveX" type="TextureRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_5scca")
+
+[node name="AutoSaveCheck" type="TextureRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_ridfr")
+
+[node name="BoxTail" type="Sprite2D" parent="SaveSettings"]
+position = Vector2(71, -1)
+rotation = -3.14159
+texture = ExtResource("8_qrduu")
+
 [connection signal="toggled" from="MarginContainer/HBoxContainer/UiScaleButton" to="." method="_on_ui_scale_button_toggled"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/UiScaleButton" to="MarginContainer/HBoxContainer/UiScaleButton" method="_on_toggled"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/SoundButton" to="MarginContainer/HBoxContainer/SoundButton" method="_on_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_toggled"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/SaveButton" to="MarginContainer/HBoxContainer/SaveButton" method="_on_toggled"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/InfoButton" to="MarginContainer/HBoxContainer/InfoButton" method="_on_toggled"]
 [connection signal="toggled" from="MarginContainer/HBoxContainer/QuitButton" to="MarginContainer/HBoxContainer/QuitButton" method="_on_toggled"]
@@ -358,3 +584,7 @@ text = "0"
 [connection signal="value_changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound" to="." method="_on_ui_scale_slider_value_changed"]
 [connection signal="changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound2" to="." method="_on_h_slider_changed"]
 [connection signal="value_changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound2" to="." method="_on_ui_scale_slider_value_changed"]
+[connection signal="pressed" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="timeout" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/SaveTimer" to="." method="_on_save_timer_timeout"]
+[connection signal="timeout" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/ReturnTimer" to="." method="_on_return_timer_timeout"]
+[connection signal="toggled" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton" to="." method="_on_auto_save_button_toggled"]
