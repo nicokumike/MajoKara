@@ -1,0 +1,152 @@
+[gd_scene load_steps=5 format=3 uid="uid://c54736gwc731w"]
+
+[ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="1_3dm0a"]
+[ext_resource type="Script" uid="uid://dmejjs8wf103c" path="res://UI/quit_button.gd" id="1_t8cj6"]
+[ext_resource type="Texture2D" uid="uid://bq74mwa4la5ir" path="res://Assets/UI/NinePatchBox.png" id="2_t8cj6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jidq"]
+bg_color = Color(0.207843, 0.156863, 0.270588, 1)
+
+[node name="QuitButtonChild" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_t8cj6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 25)
+theme_override_constants/separation = 8
+
+[node name="QuitSettings" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_3dm0a")
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/QuitSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_right = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -5
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -5
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/QuitSettings/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_t8cj6")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/QuitSettings/MarginContainer/NinePatchRect"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jidq")
+
+[node name="Label" type="Label" parent="VBoxContainer/QuitSettings/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.5
+offset_top = -21.0
+offset_right = 11.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Save & Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitSettings2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_3dm0a")
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/QuitSettings2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -5
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = -5
+theme_override_constants/margin_bottom = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/QuitSettings2/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_t8cj6")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/QuitSettings2/MarginContainer/NinePatchRect"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jidq")
+
+[node name="Label" type="Label" parent="VBoxContainer/QuitSettings2/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.5
+offset_top = -21.0
+offset_right = 11.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1

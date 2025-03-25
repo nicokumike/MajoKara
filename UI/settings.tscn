@@ -56,30 +56,40 @@ HSlider/styles/slider = SubResource("StyleBoxTexture_sxqi7")
 
 [node name="Settings" type="Control"]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_sxqi7")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -96.0
-offset_bottom = 16.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -95.0
+offset_bottom = 26.0
 grow_horizontal = 0
 theme_override_constants/margin_left = -10
 theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 9
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 alignment = 1
 
-[node name="UiScaleButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="UiScaleButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
@@ -90,7 +100,7 @@ texture_disabled = ExtResource("1_fb0e8")
 texture_focused = ExtResource("1_fb0e8")
 script = ExtResource("3_meugl")
 
-[node name="SoundButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="SoundButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
@@ -101,7 +111,7 @@ texture_disabled = ExtResource("2_lgafb")
 texture_focused = ExtResource("2_lgafb")
 script = ExtResource("3_meugl")
 
-[node name="SaveButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="SaveButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
@@ -112,7 +122,7 @@ texture_disabled = ExtResource("3_ww78k")
 texture_focused = ExtResource("3_ww78k")
 script = ExtResource("3_meugl")
 
-[node name="InfoButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="InfoButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
@@ -123,7 +133,7 @@ texture_disabled = ExtResource("4_q4n24")
 texture_focused = ExtResource("4_q4n24")
 script = ExtResource("3_meugl")
 
-[node name="QuitButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
@@ -134,18 +144,17 @@ texture_disabled = ExtResource("5_ba51m")
 texture_focused = ExtResource("5_ba51m")
 script = ExtResource("3_meugl")
 
-[node name="UiScale" type="Label" parent="."]
+[node name="UiScale" type="Label" parent="Control"]
 visible = false
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -149.0
-offset_top = 39.0
-offset_right = -43.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -147.0
+offset_top = 41.0
+offset_right = -41.0
+offset_bottom = 62.0
+grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("6_q4n24")
@@ -153,7 +162,7 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="MarginContainer" type="MarginContainer" parent="UiScale"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/UiScale"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,7 +174,7 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="NinePatchRect" type="NinePatchRect" parent="UiScale/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/UiScale/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("7_ba51m")
 patch_margin_left = 1
@@ -173,7 +182,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="UiScale/MarginContainer/NinePatchRect"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/UiScale/MarginContainer/NinePatchRect"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -183,12 +192,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
-[node name="BoxTail" type="Sprite2D" parent="UiScale"]
+[node name="BoxTail" type="Sprite2D" parent="Control/UiScale"]
 position = Vector2(51, -1)
 rotation = -3.14159
 texture = ExtResource("8_qrduu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UiScale"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/UiScale"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -196,10 +205,10 @@ offset_bottom = 21.0
 grow_horizontal = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/UiScale/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UiScale/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Control/UiScale/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -207,10 +216,10 @@ text = "UI Scale"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="Control/UiScale/HBoxContainer"]
 layout_mode = 2
 
-[node name="UiScaleDown" type="TextureButton" parent="UiScale/HBoxContainer/VBoxContainer4"]
+[node name="UiScaleDown" type="TextureButton" parent="Control/UiScale/HBoxContainer/VBoxContainer4"]
 layout_mode = 2
 texture_normal = ExtResource("10_ioe6w")
 texture_pressed = ExtResource("10_ioe6w")
@@ -218,17 +227,17 @@ texture_hover = ExtResource("10_ioe6w")
 texture_disabled = ExtResource("10_ioe6w")
 texture_focused = ExtResource("10_ioe6w")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/UiScale/HBoxContainer"]
 layout_mode = 2
 
-[node name="ScaleLabel" type="Label" parent="UiScale/HBoxContainer/VBoxContainer3"]
+[node name="ScaleLabel" type="Label" parent="Control/UiScale/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "2x"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UiScale/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/UiScale/HBoxContainer"]
 layout_mode = 2
 
-[node name="UiScaleUp" type="TextureButton" parent="UiScale/HBoxContainer/VBoxContainer"]
+[node name="UiScaleUp" type="TextureButton" parent="Control/UiScale/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("11_meugl")
 texture_pressed = ExtResource("11_meugl")
@@ -236,18 +245,17 @@ texture_hover = ExtResource("11_meugl")
 texture_disabled = ExtResource("11_meugl")
 texture_focused = ExtResource("11_meugl")
 
-[node name="SoundSettings" type="Label" parent="."]
+[node name="SoundSettings" type="Label" parent="Control"]
 visible = false
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
-offset_top = 39.0
-offset_right = -22.0
-offset_bottom = 82.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -127.0
+offset_top = 41.0
+offset_right = -21.0
+offset_bottom = 84.0
+grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("6_q4n24")
@@ -255,7 +263,7 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="MarginContainer" type="MarginContainer" parent="SoundSettings"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/SoundSettings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,7 +275,7 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="NinePatchRect" type="NinePatchRect" parent="SoundSettings/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/SoundSettings/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("7_ba51m")
 patch_margin_left = 1
@@ -275,7 +283,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="SoundSettings/MarginContainer/NinePatchRect"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/SoundSettings/MarginContainer/NinePatchRect"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -286,12 +294,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
-[node name="BoxTail" type="Sprite2D" parent="SoundSettings"]
+[node name="BoxTail" type="Sprite2D" parent="Control/SoundSettings"]
 position = Vector2(51, -1)
 rotation = -3.14159
 texture = ExtResource("8_qrduu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SoundSettings"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/SoundSettings"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -299,10 +307,10 @@ offset_bottom = 21.0
 grow_horizontal = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="SoundSettings/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/SoundSettings/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Control/SoundSettings/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -310,7 +318,7 @@ text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="Control/SoundSettings/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -318,47 +326,46 @@ text = "Sounds"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SoundSettings/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SoundSettings/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Sound" type="HSlider" parent="SoundSettings/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_opicb")
-max_value = 9.0
-
-[node name="Sound2" type="HSlider" parent="SoundSettings/HBoxContainer/VBoxContainer"]
+[node name="Sound" type="HSlider" parent="Control/SoundSettings/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_opicb")
 max_value = 9.0
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="SoundSettings/HBoxContainer"]
+[node name="Sound2" type="HSlider" parent="Control/SoundSettings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_opicb")
+max_value = 9.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/SoundSettings/HBoxContainer"]
 layout_mode = 2
 
-[node name="SoundLabel" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer3"]
+[node name="SoundLabel" type="Label" parent="Control/SoundSettings/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "0"
 
-[node name="SoundLabel2" type="Label" parent="SoundSettings/HBoxContainer/VBoxContainer3"]
+[node name="SoundLabel2" type="Label" parent="Control/SoundSettings/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "0"
 
-[node name="SaveSettings" type="Label" parent="."]
+[node name="SaveSettings" type="Label" parent="Control"]
 visible = false
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
-offset_top = 39.0
-offset_right = -22.0
-offset_bottom = 82.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -127.0
+offset_top = 41.0
+offset_right = -21.0
+offset_bottom = 84.0
+grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("6_q4n24")
@@ -366,7 +373,7 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="MarginContainer" type="MarginContainer" parent="SaveSettings"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/SaveSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33
@@ -379,7 +386,7 @@ theme_override_constants/margin_left = -5
 theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 
-[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/SaveSettings/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("7_ba51m")
 patch_margin_left = 1
@@ -387,7 +394,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/NinePatchRect"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/SaveSettings/MarginContainer/NinePatchRect"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -398,22 +405,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
-[node name="MarginContainer" type="MarginContainer" parent="SaveSettings/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/SaveSettings/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="SaveButtonLabel" type="Label" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="SaveButtonLabel" type="Label" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -421,7 +428,7 @@ text = " Save "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -435,7 +442,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -446,7 +453,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
-[node name="SaveButton" type="Button" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect"]
+[node name="SaveButton" type="Button" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -455,36 +462,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SaveTimer" type="Timer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
+[node name="SaveTimer" type="Timer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
 wait_time = 0.25
 
-[node name="ReturnTimer" type="Timer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
+[node name="ReturnTimer" type="Timer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel"]
 one_shot = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = -1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
 theme_override_constants/separation = -1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2"]
+[node name="Label" type="Label" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = " Auto Save "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2/Label"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2/Label"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -498,7 +505,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2/Label/NinePatchRect"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/VBoxContainer2/Label/NinePatchRect"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -509,11 +516,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
-[node name="MarginContainer2" type="MarginContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2"]
 layout_mode = 2
 theme_override_constants/margin_left = 9
 
-[node name="NinePatchRect" type="NinePatchRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2"]
 custom_minimum_size = Vector2(17, 17)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -524,7 +531,7 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -535,7 +542,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
-[node name="AutoSaveButton" type="Button" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect"]
+[node name="AutoSaveButton" type="Button" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -546,7 +553,7 @@ grow_vertical = 2
 toggle_mode = true
 button_pressed = true
 
-[node name="AutoSaveX" type="TextureRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton"]
+[node name="AutoSaveX" type="TextureRect" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -556,7 +563,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("16_5scca")
 
-[node name="AutoSaveCheck" type="TextureRect" parent="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton"]
+[node name="AutoSaveCheck" type="TextureRect" parent="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -565,26 +572,48 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_ridfr")
 
-[node name="BoxTail" type="Sprite2D" parent="SaveSettings"]
+[node name="BoxTail" type="Sprite2D" parent="Control/SaveSettings"]
 position = Vector2(71, -1)
 rotation = -3.14159
 texture = ExtResource("8_qrduu")
 
-[connection signal="toggled" from="MarginContainer/HBoxContainer/UiScaleButton" to="." method="_on_ui_scale_button_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/UiScaleButton" to="MarginContainer/HBoxContainer/UiScaleButton" method="_on_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/SoundButton" to="MarginContainer/HBoxContainer/SoundButton" method="_on_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/SaveButton" to="MarginContainer/HBoxContainer/SaveButton" method="_on_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/InfoButton" to="MarginContainer/HBoxContainer/InfoButton" method="_on_toggled"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/QuitButton" to="MarginContainer/HBoxContainer/QuitButton" method="_on_toggled"]
-[connection signal="pressed" from="UiScale/HBoxContainer/VBoxContainer4/UiScaleDown" to="." method="_on_ui_scale_down_pressed"]
-[connection signal="pressed" from="UiScale/HBoxContainer/VBoxContainer/UiScaleUp" to="." method="_on_ui_scale_up_pressed"]
-[connection signal="changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound" to="." method="_on_h_slider_changed"]
-[connection signal="value_changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound" to="." method="_on_ui_scale_slider_value_changed"]
-[connection signal="changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound2" to="." method="_on_h_slider_changed"]
-[connection signal="value_changed" from="SoundSettings/HBoxContainer/VBoxContainer/Sound2" to="." method="_on_ui_scale_slider_value_changed"]
-[connection signal="pressed" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="timeout" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/SaveTimer" to="." method="_on_save_timer_timeout"]
-[connection signal="timeout" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/ReturnTimer" to="." method="_on_return_timer_timeout"]
-[connection signal="toggled" from="SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton" to="." method="_on_auto_save_button_toggled"]
+[node name="QuitSettings" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 338.0
+offset_right = -11.0
+offset_bottom = 359.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("6_q4n24")
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/UiScaleButton" to="." method="_on_ui_scale_button_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/UiScaleButton" to="Control/MarginContainer/HBoxContainer/UiScaleButton" method="_on_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/SoundButton" to="Control/MarginContainer/HBoxContainer/SoundButton" method="_on_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/SaveButton" to="Control/MarginContainer/HBoxContainer/SaveButton" method="_on_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/InfoButton" to="Control/MarginContainer/HBoxContainer/InfoButton" method="_on_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/QuitButton" to="Control/MarginContainer/HBoxContainer/QuitButton" method="_on_toggled"]
+[connection signal="pressed" from="Control/UiScale/HBoxContainer/VBoxContainer4/UiScaleDown" to="." method="_on_ui_scale_down_pressed"]
+[connection signal="pressed" from="Control/UiScale/HBoxContainer/VBoxContainer/UiScaleUp" to="." method="_on_ui_scale_up_pressed"]
+[connection signal="value_changed" from="Control/SoundSettings/HBoxContainer/VBoxContainer/Sound" to="." method="_on_sound_value_changed"]
+[connection signal="value_changed" from="Control/SoundSettings/HBoxContainer/VBoxContainer/Sound2" to="." method="_on_sound_2_value_changed"]
+[connection signal="pressed" from="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/NinePatchRect/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="timeout" from="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/SaveTimer" to="." method="_on_save_timer_timeout"]
+[connection signal="timeout" from="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SaveButtonLabel/ReturnTimer" to="." method="_on_return_timer_timeout"]
+[connection signal="toggled" from="Control/SaveSettings/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer2/MarginContainer2/NinePatchRect/AutoSaveButton" to="." method="_on_auto_save_button_toggled"]

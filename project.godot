@@ -15,6 +15,10 @@ run/main_scene="uid://coals5d42dy5e"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://brxwmhx0my20x"
 
+[autoload]
+
+GlobalSettings="*res://Globals/GlobalSettings.gd"
+
 [display]
 
 window/size/viewport_width=640
