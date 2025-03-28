@@ -77,6 +77,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jidq")
 
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/QuitSettings/MarginContainer/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Label" type="Label" parent="VBoxContainer/QuitSettings/MarginContainer/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 7
@@ -92,6 +101,18 @@ grow_vertical = 0
 text = "Save & Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SaveQuit" type="Button" parent="VBoxContainer/QuitSettings"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -5.0
+offset_right = 23.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="QuitSettings2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -135,6 +156,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jidq")
 
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/QuitSettings2/MarginContainer/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Label" type="Label" parent="VBoxContainer/QuitSettings2/MarginContainer/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 7
@@ -150,3 +180,22 @@ grow_vertical = 0
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="VBoxContainer/QuitSettings2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="VBoxContainer/QuitSettings/SaveQuit" to="." method="_on_save_quit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/QuitSettings/SaveQuit" to="." method="_on_save_quit_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/QuitSettings/SaveQuit" to="." method="_on_save_quit_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitSettings2/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/QuitSettings2/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/QuitSettings2/Quit" to="." method="_on_quit_pressed"]

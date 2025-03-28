@@ -1,6 +1,10 @@
 extends Node2D
 
 @onready var resize_timer = $"../Resize_Timer"
+@onready var forest = $Forest
+@onready var planter = $Forest/Planter
+@onready var PLANT = preload("res://Entities/Plants/bulb_plant.tscn")
+
 
 func _ready():
 	position.y = get_viewport().get_visible_rect().size.y - 32
