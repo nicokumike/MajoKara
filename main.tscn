@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://coals5d42dy5e"]
+[gd_scene load_steps=7 format=3 uid="uid://coals5d42dy5e"]
 
 [ext_resource type="PackedScene" uid="uid://y56dift1p0bn" path="res://Entities/Environment/ground.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ca2sradfan2sr" path="res://UI/camera_base.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bp63b4jst0q7r" path="res://UI/settings.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://knxl6lss52tg" path="res://currency.gd" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://df3jxdo3m0lk6" path="res://Assets/UI/MagicSymbol.png" id="4_lquwl"]
+[ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="5_7mycd"]
 
 [node name="Main" type="Node2D"]
 
@@ -19,6 +22,49 @@ one_shot = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Settings" parent="CanvasLayer" instance=ExtResource("4_1bvp3")]
+
+[node name="Currency" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_7mycd")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Currency"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = -5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Currency/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Currency/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_lquwl")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Currency/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Currency/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_7mycd")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Resize_Timer" to="CameraBase" method="_on_resize_timer_timeout"]
 [connection signal="timeout" from="Resize_Timer" to="Ground" method="_on_resize_timer_timeout"]
