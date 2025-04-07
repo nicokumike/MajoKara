@@ -7,6 +7,7 @@ extends Path2D
 @onready var locator: Marker2D = $Locator
 @onready var area_2d: Area2D = $Locator/Area2D
 @onready var current_grass = Node2D
+var moved = true
 var current_pos = Vector2()
 
 func get_current_position():
@@ -18,8 +19,9 @@ func set_start_point(pos):
 	print(pos)
 	$LocatorTimeout.start()
 	
-func set_end_point():
-	pass
+func set_end_point(end_pos):
+	path.curve.add_point(Vector2(end_pos))
+	fairy_flight()
 	
 func search_for_plant():
 	locator.position.x += 1
@@ -55,10 +57,12 @@ func _on_area_2d_connect_grass(sender, value) -> void:
 	$LocatorTimeout.stop()
 	sender.fairy_acknowledges_me()
 	current_grass = sender
-	print(value)
-	locator.global_position.y = SignalBus.ground_position.y
-	locator.global_position.y -= value
-	print(value)
+	if moved == true:
+		locator.global_position.y = SignalBus.ground_position.y
+		locator.position.y += value
+		var end_pos = locator.global_position
+		set_end_point(end_pos)
+		moved = false
 	
 func reset():
 	current_grass = null

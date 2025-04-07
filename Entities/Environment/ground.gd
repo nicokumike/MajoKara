@@ -8,6 +8,7 @@ extends Node2D
 
 func _ready():
 	position.y = get_viewport().get_visible_rect().size.y - 32
+	SignalBus.ground_position.y = position.y
 	
 func _process(_delta):
 	pass
