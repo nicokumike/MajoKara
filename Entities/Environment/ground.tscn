@@ -106,7 +106,7 @@ rotates = false
 script = ExtResource("7_d6xj7")
 
 [node name="Timer" type="Timer" parent="Forest"]
-wait_time = 0.001
+wait_time = 0.05
 autostart = true
 
 [node name="Count" type="Label" parent="."]

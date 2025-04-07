@@ -6,6 +6,7 @@ extends Path2D
 @onready var end_point: Marker2D = $EndPoint
 @onready var locator: Marker2D = $Locator
 @onready var area_2d: Area2D = $Locator/Area2D
+@onready var current_grass = Node2D
 var current_pos = Vector2()
 
 func get_current_position():
@@ -23,7 +24,6 @@ func set_end_point():
 func search_for_plant():
 	locator.position.x += 1
 	
-
 func _ready() -> void:
 	get_current_position()
 	#var speed = randi_range(.3, 1)
@@ -41,8 +41,6 @@ func destroy():
 func _process(delta: float) -> void:
 	if follow.progress_ratio == 1:
 		pass
-		#emit_signal("fill")
-		#queue_free()
 
 func fairy_flight():
 	#$Path2D/PathFollow2D/Firelantern.visible = true
@@ -53,7 +51,14 @@ func fairy_flight():
 func _on_locator_timeout_timeout() -> void:
 	search_for_plant()
 
-
-func _on_area_2d_connect_grass(sender) -> void:
+func _on_area_2d_connect_grass(sender, value) -> void:
 	$LocatorTimeout.stop()
 	sender.fairy_acknowledges_me()
+	current_grass = sender
+	print(value)
+	locator.global_position.y = SignalBus.ground_position.y
+	locator.global_position.y -= value
+	print(value)
+	
+func reset():
+	current_grass = null

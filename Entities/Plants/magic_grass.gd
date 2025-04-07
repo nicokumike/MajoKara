@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	if ray_cast_2d.is_colliding() == true:
 		var obj = ray_cast_2d.get_collider()
 		if obj.has_method("connect_fairy"):
-			obj.connect_fairy(self)
+			obj.connect_fairy(self, value)
 		
 func fairy_acknowledges_me():
 	print("hell ya")
