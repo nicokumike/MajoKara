@@ -18,6 +18,7 @@ config/icon="uid://brxwmhx0my20x"
 [autoload]
 
 GlobalSettings="*res://Globals/GlobalSettings.gd"
+SignalBus="*res://Globals/SignalBus.gd"
 
 [display]
 
@@ -50,6 +51,7 @@ right_click={
 [layer_names]
 
 2d_physics/layer_1="Ojamajo"
+2d_physics/layer_3="Fairies"
 
 [rendering]
 

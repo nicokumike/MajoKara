@@ -1,7 +1,9 @@
-extends StaticBody2D
+extends Node2D
 
 @onready var line_2d: Line2D = $Line2D
 @onready var grow_clock: Timer = $GrowClock
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
+
 
 var growth_factor = 1
 var growth_amnt = 0
@@ -27,6 +29,15 @@ func _ready() -> void:
 	maximum_growth = max_growth_copy
 	grow_clock.start()
 	
+func _physics_process(delta: float) -> void:
+	if ray_cast_2d.is_colliding() == true:
+		var obj = ray_cast_2d.get_collider()
+		if obj.has_method("connect_fairy"):
+			obj.connect_fairy(self)
+		
+func fairy_acknowledges_me():
+	print("hell ya")
+	
 func grow(growth_factor):
 	growth_amnt += growth_factor
 	value += growth_factor
@@ -39,3 +50,12 @@ func grow(growth_factor):
 func _on_grow_clock_timeout() -> void:
 	grow_clock.wait_time = randf_range(0, 1.2)
 	grow(randi_range(-1, -2))
+
+func _collected(collection_amnt):
+	growth_amnt -= collection_amnt
+	value -= collection_amnt
+	if value > 0:
+		line_2d.set_point_position(0, Vector2(0, growth_amnt))
+	else:
+		queue_free()
+	

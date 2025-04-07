@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmtjgtbfdlgcl"]
+[gd_scene load_steps=2 format=3 uid="uid://dmtjgtbfdlgcl"]
 
 [ext_resource type="Script" uid="uid://bln8p1kk2aqoc" path="res://Entities/Plants/magic_grass.gd" id="1_d4em1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4em1"]
-size = Vector2(1, 18)
-
-[node name="MagicGrass" type="StaticBody2D"]
+[node name="MagicGrass" type="Node2D"]
 script = ExtResource("1_d4em1")
 
 [node name="Line2D" type="Line2D" parent="."]
@@ -15,8 +12,11 @@ width = 1.0
 
 [node name="GrowClock" type="Timer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -9)
-shape = SubResource("RectangleShape2D_d4em1")
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = 3.14159
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
 
 [connection signal="timeout" from="GrowClock" to="." method="_on_grow_clock_timeout"]

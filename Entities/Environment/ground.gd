@@ -15,3 +15,4 @@ func _process(_delta):
 
 func _on_resize_timer_timeout():
 	position.y = get_viewport().get_visible_rect().size.y - 32
+	SignalBus.ground_position.y = position.y

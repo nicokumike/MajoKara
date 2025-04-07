@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://naq2dhl5ely2"]
+[gd_scene load_steps=9 format=3 uid="uid://naq2dhl5ely2"]
 
+[ext_resource type="Script" uid="uid://c2mnd4tnqjq6a" path="res://Entities/Fairies/fairy.gd" id="1_2u0gk"]
 [ext_resource type="Texture2D" uid="uid://dm7kmtc1mpsao" path="res://Assets/Entities/Characters/Fairy.png" id="1_dgycp"]
+[ext_resource type="Script" uid="uid://bu5l44w33brnm" path="res://Entities/Fairies/fairy_area.gd" id="3_7xlch"]
+
+[sub_resource type="Curve2D" id="Curve2D_2u0gk"]
 
 [sub_resource type="Animation" id="Animation_2u0gk"]
 resource_name = "Flying"
@@ -10,7 +14,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Fairy:frame")
+tracks/0/path = NodePath("PathFollow2D/Fairy:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +29,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Fairy:frame")
+tracks/0/path = NodePath("PathFollow2D/Fairy:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,9 +45,17 @@ _data = {
 &"RESET": SubResource("Animation_7xlch")
 }
 
-[node name="MainFairy" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2u0gk"]
+radius = 2.0
 
-[node name="Fairy" type="Sprite2D" parent="."]
+[node name="MainFairy" type="Path2D"]
+curve = SubResource("Curve2D_2u0gk")
+script = ExtResource("1_2u0gk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="Fairy" type="Sprite2D" parent="PathFollow2D"]
 texture = ExtResource("1_dgycp")
 hframes = 9
 
@@ -51,4 +63,26 @@ hframes = 9
 libraries = {
 &"": SubResource("AnimationLibrary_0e58w")
 }
+autoplay = "Flying"
 speed_scale = 2.0
+
+[node name="StartPoint" type="Marker2D" parent="."]
+
+[node name="EndPoint" type="Marker2D" parent="."]
+
+[node name="Locator" type="Marker2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Locator"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_7xlch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locator/Area2D"]
+shape = SubResource("CircleShape2D_2u0gk")
+
+[node name="LocatorTimeout" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="area_entered" from="Locator/Area2D" to="Locator/Area2D" method="_on_area_entered"]
+[connection signal="connect_grass" from="Locator/Area2D" to="." method="_on_area_2d_connect_grass"]
+[connection signal="timeout" from="LocatorTimeout" to="." method="_on_locator_timeout_timeout"]
