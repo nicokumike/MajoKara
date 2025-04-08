@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bu5l44w33brnm" path="res://Entities/Fairies/fairy_area.gd" id="3_7xlch"]
 [ext_resource type="Texture2D" uid="uid://bq67khybdjo5t" path="res://Assets/UI/sound.png" id="4_0e58w"]
 
-[sub_resource type="Curve2D" id="Curve2D_2u0gk"]
+[sub_resource type="Curve2D" id="Curve2D_0e58w"]
 
 [sub_resource type="Animation" id="Animation_2u0gk"]
 resource_name = "Flying"
@@ -50,7 +50,7 @@ _data = {
 size = Vector2(2, 2)
 
 [node name="MainFairy" type="Path2D"]
-curve = SubResource("Curve2D_2u0gk")
+curve = SubResource("Curve2D_0e58w")
 script = ExtResource("1_2u0gk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
@@ -87,7 +87,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_0e58w")
 
 [node name="LocatorTimeout" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.05
 
 [connection signal="area_entered" from="Locator/Area2D" to="Locator/Area2D" method="_on_area_entered"]
 [connection signal="connect_grass" from="Locator/Area2D" to="." method="_on_area_2d_connect_grass"]

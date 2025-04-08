@@ -9,18 +9,19 @@ extends Path2D
 @onready var current_grass = Node2D
 var moved = true
 var current_pos = Vector2()
+var speed = randf_range(10, 10)
 
 func get_current_position():
 	current_pos = self.global_position
 	set_start_point(current_pos)
 
 func set_start_point(pos):
-	path.curve.add_point(Vector2(pos))
+	path.curve.add_point(to_local(pos))
 	print(pos)
 	$LocatorTimeout.start()
 	
 func set_end_point(end_pos):
-	path.curve.add_point(Vector2(end_pos))
+	path.curve.add_point(to_local(end_pos))
 	fairy_flight()
 	
 func search_for_plant():
@@ -29,11 +30,12 @@ func search_for_plant():
 func _ready() -> void:
 	get_current_position()
 	#var speed = randi_range(.3, 1)
-	var rand_y = randi_range(0, 280)
+	var rand_x = randi_range(0, 90)
+	var rand_y = randi_range(0, -45)
 	#follow.progress_ratio = 0
 	#path.curve.add_point(Vector2(84, 120))
 	#path.curve.add_point(Vector2(640, 392))
-	#path.curve.set_point_out(0, Vector2(280, rand_y))
+	path.curve.set_point_out(0, Vector2(rand_x, rand_y))
 	#_flame_velocity()
 	
 func destroy():
@@ -46,7 +48,6 @@ func _process(delta: float) -> void:
 
 func fairy_flight():
 	#$Path2D/PathFollow2D/Firelantern.visible = true
-	var speed = randf_range(.3, .6)
 	var tween = create_tween()
 	tween.tween_property(follow, "progress_ratio", 1, speed)
 
