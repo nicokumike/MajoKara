@@ -12,7 +12,7 @@ var growth_amnt = 0
 var maximum_growth = 0
 var value = 0
 var max_plant_cap
-@export var plant_cap_debug = -5
+@export var plant_cap_debug = -90
 @export var max_grow_clock_time = 1.2
 
 func _ready() -> void:
@@ -54,7 +54,7 @@ func grow(growth_factor):
 
 func _on_grow_clock_timeout() -> void:
 	grow_clock.wait_time = randf_range(0, max_grow_clock_time)
-	grow(randi_range(-1, -2))
+	grow(randi_range(-1, -1))
 
 func _collected(collection_amnt):
 	if value < 0:

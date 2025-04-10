@@ -8,7 +8,6 @@ script = ExtResource("1_d4em1")
 max_grow_clock_time = 0.1
 
 [node name="Line2D" type="Line2D" parent="."]
-position = Vector2(-0.5, 0)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 

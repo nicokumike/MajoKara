@@ -18,7 +18,7 @@ var moved = true
 var current_pos = Vector2()
 var speed = randf_range(2, 2)
 var inventory = 0
-var max_storage = 5
+var max_storage = 50
 
 func get_current_position():
 	current_pos = self.global_position
@@ -34,7 +34,7 @@ func set_end_point(end_pos):
 	fairy_flight()
 	
 func search_for_plant():
-	locator.position.x += 1
+	locator.position.x += .5
 	
 func _ready() -> void:
 	get_current_position()
