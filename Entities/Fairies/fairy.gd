@@ -18,7 +18,7 @@ extends Path2D
 var collection_factor = 1
 var moved = true
 var current_pos = Vector2()
-var speed = randf_range(2, 2)
+var speed = randf_range(1, 1)
 var inventory = 0
 var max_storage = 9999
 
@@ -34,8 +34,9 @@ func set_start_point(pos):
 	
 func set_end_point(end_pos):
 	path.curve.add_point(to_local(end_pos))
+	follow.progress_ratio = 0
 	var arch = end_pos - self.position
-	var outX = arch.x/5
+	var outX = arch.x/randf_range(1.5, 3.5)
 	path.curve.set_point_out(0, Vector2(outX, -outX))
 	path.curve.set_point_out(1, Vector2(-outX, -outX))
 	fairy_flight()
@@ -73,9 +74,11 @@ func _on_locator_timeout_timeout() -> void:
 	search_for_plant()
 
 func _on_area_2d_connect_grass(sender, value) -> void:
+	
 	locator_timeout.stop()
 	sender.fairy_acknowledges_me()
 	current_grass = sender
+	sender.ray_cast_2d.enabled = false
 	if moved == true:
 		locator.global_position.y = SignalBus.ground_position.y
 		locator.position.y += value
@@ -86,7 +89,6 @@ func _on_area_2d_connect_grass(sender, value) -> void:
 func reset():
 	while path.curve.get_point_count() > 0:
 		path.curve.remove_point(0)
-	follow.progress_ratio = 0
 	locator.global_position.y += -16
 	current_grass = null
 	get_current_position()
@@ -97,7 +99,7 @@ func _on_grass_collection_timeout() -> void:
 		if inventory < max_storage:
 			current_grass._collected(collection_factor)
 			inventory += 1
-			self.position.y += 1
+			follow.position.y += 1
 			label.text = str(inventory) + "/5"
 		else:
 			inventory_full()

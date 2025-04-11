@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://y56dift1p0bn"]
+[gd_scene load_steps=15 format=3 uid="uid://y56dift1p0bn"]
 
 [ext_resource type="Script" uid="uid://h0xw8ngtc1ls" path="res://Entities/Environment/ground.gd" id="1_xacfp"]
 [ext_resource type="Texture2D" uid="uid://2h31g78o6wb1" path="res://Assets/Entities/Buildings/WitchHouseTest2.png" id="3_d6xj7"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dpsa1igwwgwj1" path="res://Entities/Environment/planter.gd" id="7_d6xj7"]
 [ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="7_rt06b"]
 [ext_resource type="PackedScene" uid="uid://naq2dhl5ely2" path="res://Entities/Fairies/Fairy.tscn" id="8_rt06b"]
-[ext_resource type="PackedScene" uid="uid://b31we60e2a6bc" path="res://Entities/Debug/boxxerton.tscn" id="9_4e8f1"]
 
 [sub_resource type="Animation" id="Animation_3ryhh"]
 length = 0.001
@@ -54,6 +53,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 100, 0)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_rt06b"]
+resource_local_to_scene = true
+
+[sub_resource type="Curve2D" id="Curve2D_4e8f1"]
+resource_local_to_scene = true
 
 [node name="Ground" type="Node2D"]
 script = ExtResource("1_xacfp")
@@ -119,8 +124,42 @@ theme_override_font_sizes/font_size = 76
 
 [node name="MainFairy" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
 
-[node name="Boxxerton" parent="." instance=ExtResource("9_4e8f1")]
-position = Vector2(193, -43)
+[node name="MainFairy2" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy3" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy4" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy5" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy6" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy7" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy8" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy9" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
+
+[node name="MainFairy10" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_4e8f1")
 
 [connection signal="timeout" from="Forest/Timer" to="Forest/Planter" method="_on_timer_timeout"]
