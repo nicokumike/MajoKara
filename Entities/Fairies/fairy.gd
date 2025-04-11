@@ -20,17 +20,24 @@ var moved = true
 var current_pos = Vector2()
 var speed = randf_range(1, 1)
 var inventory = 0
-var max_storage = 9999
+var max_storage = 10
+var searching = false
 
-func get_current_position():
+func get_current_position(searching):
 	current_pos = fairy.global_position
-	set_start_point(current_pos)
+	set_start_point(current_pos, searching)
 
-func set_start_point(pos):
+func set_start_point(pos, searching):
 	path.curve.add_point(to_local(pos))
 	#print(pos)
-	locator_timeout.start()
-	moved = true
+	if searching == true:
+		locator_timeout.start()
+		moved = true
+	else:
+		set_end_point(GlobalSettings.cauldron_location)
+	
+	
+
 	
 func set_end_point(end_pos):
 	path.curve.add_point(to_local(end_pos))
@@ -45,7 +52,7 @@ func search_for_plant():
 	locator.position.x += .5
 	
 func _ready() -> void:
-	get_current_position()
+	get_current_position(true)
 	#var speed = randi_range(.3, 1)
 	#follow.progress_ratio = 0
 	#path.curve.add_point(Vector2(84, 120))
@@ -91,7 +98,7 @@ func reset():
 		path.curve.remove_point(0)
 	locator.global_position.y += -16
 	current_grass = null
-	get_current_position()
+	
 
 
 func _on_grass_collection_timeout() -> void:
@@ -109,9 +116,11 @@ func _on_grass_collection_timeout() -> void:
 		grass_collection.stop()
 	
 func inventory_full():
-	pass
+	reset()
+	get_current_position(false)
 	
 func plant_fully_collected():
 	current_grass.terminate()
 	reset()
+	get_current_position(true)
 	
