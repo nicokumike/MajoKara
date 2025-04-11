@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b31we60e2a6bc"]
+
+[ext_resource type="Script" uid="uid://dmcxyomy256vm" path="res://Entities/Debug/boxxerton.gd" id="1_d0s18"]
+[ext_resource type="Texture2D" uid="uid://bq74mwa4la5ir" path="res://Assets/UI/NinePatchBox.png" id="2_uhsng"]
+
+[node name="Boxxerton" type="Node2D"]
+script = ExtResource("1_d0s18")
+
+[node name="NinePatchBox" type="Sprite2D" parent="."]
+texture = ExtResource("2_uhsng")

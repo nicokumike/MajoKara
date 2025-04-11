@@ -10,6 +10,8 @@ extends Path2D
 @onready var grass_collection: Timer = $GrassCollection
 @onready var fairy: Sprite2D = $PathFollow2D/Fairy
 @onready var label: Label = $PathFollow2D/Fairy/Label
+@onready var locator_timeout: Timer = $LocatorTimeout
+
 
 
 
@@ -18,19 +20,24 @@ var moved = true
 var current_pos = Vector2()
 var speed = randf_range(2, 2)
 var inventory = 0
-var max_storage = 50
+var max_storage = 9999
 
 func get_current_position():
-	current_pos = self.global_position
+	current_pos = fairy.global_position
 	set_start_point(current_pos)
 
 func set_start_point(pos):
 	path.curve.add_point(to_local(pos))
-	print(pos)
-	$LocatorTimeout.start()
+	#print(pos)
+	locator_timeout.start()
+	moved = true
 	
 func set_end_point(end_pos):
 	path.curve.add_point(to_local(end_pos))
+	var arch = end_pos - self.position
+	var outX = arch.x/5
+	path.curve.set_point_out(0, Vector2(outX, -outX))
+	path.curve.set_point_out(1, Vector2(-outX, -outX))
 	fairy_flight()
 	
 func search_for_plant():
@@ -39,12 +46,9 @@ func search_for_plant():
 func _ready() -> void:
 	get_current_position()
 	#var speed = randi_range(.3, 1)
-	var rand_x = randi_range(0, 90)
-	var rand_y = randi_range(0, -45)
 	#follow.progress_ratio = 0
 	#path.curve.add_point(Vector2(84, 120))
 	#path.curve.add_point(Vector2(640, 392))
-	path.curve.set_point_out(0, Vector2(rand_x, rand_y))
 	#_flame_velocity()
 	
 func destroy():
@@ -69,7 +73,7 @@ func _on_locator_timeout_timeout() -> void:
 	search_for_plant()
 
 func _on_area_2d_connect_grass(sender, value) -> void:
-	$LocatorTimeout.stop()
+	locator_timeout.stop()
 	sender.fairy_acknowledges_me()
 	current_grass = sender
 	if moved == true:
@@ -80,14 +84,20 @@ func _on_area_2d_connect_grass(sender, value) -> void:
 		moved = false
 	
 func reset():
+	while path.curve.get_point_count() > 0:
+		path.curve.remove_point(0)
+	follow.progress_ratio = 0
+	locator.global_position.y += -16
 	current_grass = null
+	get_current_position()
+
 
 func _on_grass_collection_timeout() -> void:
 	if abs(current_grass.value) > 0:
 		if inventory < max_storage:
 			current_grass._collected(collection_factor)
 			inventory += 1
-			fairy.position.y += 1
+			self.position.y += 1
 			label.text = str(inventory) + "/5"
 		else:
 			inventory_full()
@@ -97,7 +107,9 @@ func _on_grass_collection_timeout() -> void:
 		grass_collection.stop()
 	
 func inventory_full():
-	print("im fulllll!")
+	pass
 	
 func plant_fully_collected():
-	print("planted gone")
+	current_grass.terminate()
+	reset()
+	

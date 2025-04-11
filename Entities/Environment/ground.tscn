@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://y56dift1p0bn"]
+[gd_scene load_steps=14 format=3 uid="uid://y56dift1p0bn"]
 
 [ext_resource type="Script" uid="uid://h0xw8ngtc1ls" path="res://Entities/Environment/ground.gd" id="1_xacfp"]
 [ext_resource type="Texture2D" uid="uid://2h31g78o6wb1" path="res://Assets/Entities/Buildings/WitchHouseTest2.png" id="3_d6xj7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dpsa1igwwgwj1" path="res://Entities/Environment/planter.gd" id="7_d6xj7"]
 [ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="7_rt06b"]
 [ext_resource type="PackedScene" uid="uid://naq2dhl5ely2" path="res://Entities/Fairies/Fairy.tscn" id="8_rt06b"]
+[ext_resource type="PackedScene" uid="uid://b31we60e2a6bc" path="res://Entities/Debug/boxxerton.tscn" id="9_4e8f1"]
 
 [sub_resource type="Animation" id="Animation_3ryhh"]
 length = 0.001
@@ -107,7 +108,6 @@ script = ExtResource("7_d6xj7")
 
 [node name="Timer" type="Timer" parent="Forest"]
 wait_time = 0.05
-autostart = true
 
 [node name="Count" type="Label" parent="."]
 offset_left = 612.0
@@ -119,5 +119,8 @@ theme_override_font_sizes/font_size = 76
 
 [node name="MainFairy" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
+
+[node name="Boxxerton" parent="." instance=ExtResource("9_4e8f1")]
+position = Vector2(193, -43)
 
 [connection signal="timeout" from="Forest/Timer" to="Forest/Planter" method="_on_timer_timeout"]

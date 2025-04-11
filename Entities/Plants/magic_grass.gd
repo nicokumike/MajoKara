@@ -12,7 +12,8 @@ var growth_amnt = 0
 var maximum_growth = 0
 var value = 0
 var max_plant_cap
-@export var plant_cap_debug = -90
+var id : int
+@export var plant_cap_debug = -5
 @export var max_grow_clock_time = 1.2
 
 func _ready() -> void:
@@ -29,7 +30,7 @@ func _ready() -> void:
 		max_plant_cap = -10
 	else:
 		max_plant_cap = -5
-	var max_growth_copy = randi_range(-1, plant_cap_debug)
+	var max_growth_copy = randi_range(-1, max_plant_cap)
 	maximum_growth = max_growth_copy
 	grow_clock.start()
 	
@@ -50,6 +51,7 @@ func grow(growth_factor):
 	else:
 		label.text = str(abs(value))
 		ray_cast_2d.enabled = true
+		#print(id)
 		grow_clock.stop()
 
 func _on_grow_clock_timeout() -> void:
@@ -58,12 +60,13 @@ func _on_grow_clock_timeout() -> void:
 
 func _collected(collection_amnt):
 	if value < 0:
-		print("!!! collect !!!")
+		#print("!!! collect !!!")
 		growth_amnt += collection_amnt
 		value += collection_amnt
-		print("value less thn 0")
+		#print("value less thn 0")
 		line_2d.set_point_position(0, Vector2(0, growth_amnt))
 	else:
 		pass
 		#queue_free()
-	
+func terminate():
+	queue_free()
