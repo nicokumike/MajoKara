@@ -69,4 +69,5 @@ func _collected(collection_amnt):
 		pass
 		#queue_free()
 func terminate():
+	SignalBus.emit_signal("collected")
 	queue_free()

@@ -12,9 +12,6 @@ extends Path2D
 @onready var label: Label = $PathFollow2D/Fairy/Label
 @onready var locator_timeout: Timer = $LocatorTimeout
 
-
-
-
 var collection_factor = 1
 var moved = true
 var current_pos = Vector2()
@@ -43,13 +40,14 @@ func set_end_point(end_pos):
 	path.curve.add_point(to_local(end_pos))
 	follow.progress_ratio = 0
 	var arch = end_pos - self.position
-	var outX = arch.x/randf_range(1.5, 3.5)
-	path.curve.set_point_out(0, Vector2(outX, -outX))
-	path.curve.set_point_out(1, Vector2(-outX, -outX))
+	var dir_sign = sign(arch.x)
+	var outX = max(abs(arch.x), 64) * dir_sign / randf_range(1.5, 3.5)
+	path.curve.set_point_out(0, Vector2(outX, -abs(outX)))
+	path.curve.set_point_out(1, Vector2(-outX, -abs(outX)))
 	fairy_flight()
 	
 func search_for_plant():
-	locator.position.x += .5
+	locator.position.x += 1
 	
 func _ready() -> void:
 	get_current_position(true)
@@ -72,7 +70,10 @@ func fairy_flight():
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(follow, "progress_ratio", 1, speed)
-	tween.tween_callback(collect_material)
+	if inventory >= max_storage:
+		pass
+	else:
+		tween.tween_callback(collect_material)
 
 func collect_material():
 	grass_collection.start()
@@ -81,7 +82,6 @@ func _on_locator_timeout_timeout() -> void:
 	search_for_plant()
 
 func _on_area_2d_connect_grass(sender, value) -> void:
-	
 	locator_timeout.stop()
 	sender.fairy_acknowledges_me()
 	current_grass = sender
@@ -102,7 +102,10 @@ func reset():
 
 
 func _on_grass_collection_timeout() -> void:
-	if abs(current_grass.value) > 0:
+	if inventory >= max_storage:
+		inventory_full()
+		grass_collection.stop()
+	elif abs(current_grass.value) > 0:
 		if inventory < max_storage:
 			current_grass._collected(collection_factor)
 			inventory += 1
