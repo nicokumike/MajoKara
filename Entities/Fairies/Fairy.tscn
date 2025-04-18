@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://naq2dhl5ely2"]
+[gd_scene load_steps=12 format=3 uid="uid://naq2dhl5ely2"]
 
 [ext_resource type="Script" uid="uid://c2mnd4tnqjq6a" path="res://Entities/Fairies/fairy.gd" id="1_2u0gk"]
 [ext_resource type="Texture2D" uid="uid://dm7kmtc1mpsao" path="res://Assets/Entities/Characters/Fairy.png" id="1_dgycp"]
@@ -51,6 +51,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xlch"]
 size = Vector2(1, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y87h0"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
 [node name="MainFairy" type="Path2D"]
 curve = SubResource("Curve2D_0e58w")
 script = ExtResource("1_2u0gk")
@@ -65,13 +69,15 @@ offset = Vector2(0.5, -4)
 hframes = 9
 
 [node name="Label" type="Label" parent="PathFollow2D/Fairy"]
+visible = false
 offset_left = 4.0
 offset_top = -15.0
-offset_right = 44.0
+offset_right = 18.0
 offset_bottom = 8.0
 scale = Vector2(-0.5, 0.5)
 theme = ExtResource("5_y87h0")
-text = "0/5"
+text = "0"
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -88,7 +94,7 @@ speed_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="Locator"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("3_7xlch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Locator/Area2D"]
@@ -108,7 +114,14 @@ wait_time = 0.2
 
 [node name="Return" type="Marker2D" parent="."]
 
-[connection signal="area_entered" from="Locator/Area2D" to="Locator/Area2D" method="_on_area_entered"]
+[node name="DropOff" type="GPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y87h0")
+
 [connection signal="connect_grass" from="Locator/Area2D" to="." method="_on_area_2d_connect_grass"]
+[connection signal="restart" from="Locator/Area2D" to="." method="_on_area_2d_restart"]
 [connection signal="timeout" from="LocatorTimeout" to="." method="_on_locator_timeout_timeout"]
 [connection signal="timeout" from="GrassCollection" to="." method="_on_grass_collection_timeout"]
+[connection signal="finished" from="DropOff" to="." method="_on_gpu_particles_2d_finished"]

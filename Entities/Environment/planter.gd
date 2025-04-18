@@ -8,8 +8,8 @@ extends PathFollow2D
 @onready var timer: Timer = $"../Timer"
 
 var counted = 0
-var max_plant_spawn = 50
-var max_forest_size = 100
+var max_plant_spawn = 100
+var max_forest_size = 200
 var used_numbers = []
 
 func _ready() -> void:
@@ -21,8 +21,12 @@ func _ready() -> void:
 	stopper_spawn.position.x += 20
 	timer.start()
 	
-func plant_collected():
-	print("plant fully collected - planter")
+func plant_collected(id):
+	if id in used_numbers:
+		counted -= 1
+		for item in used_numbers:
+			if item == id:
+				used_numbers.erase(item)
 
 func _on_timer_timeout():
 	if counted < max_plant_spawn:

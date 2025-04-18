@@ -11,6 +11,7 @@ extends Path2D
 @onready var fairy: Sprite2D = $PathFollow2D/Fairy
 @onready var label: Label = $PathFollow2D/Fairy/Label
 @onready var locator_timeout: Timer = $LocatorTimeout
+@onready var drop_off: GPUParticles2D = $DropOff
 
 var collection_factor = 1
 var moved = true
@@ -50,6 +51,7 @@ func search_for_plant():
 	locator.position.x += 1
 	
 func _ready() -> void:
+	Engine.time_scale = 1
 	get_current_position(true)
 	#var speed = randi_range(.3, 1)
 	#follow.progress_ratio = 0
@@ -71,7 +73,7 @@ func fairy_flight():
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(follow, "progress_ratio", 1, speed)
 	if inventory >= max_storage:
-		pass
+		deposit()
 	else:
 		tween.tween_callback(collect_material)
 
@@ -96,21 +98,26 @@ func _on_area_2d_connect_grass(sender, value) -> void:
 func reset():
 	while path.curve.get_point_count() > 0:
 		path.curve.remove_point(0)
-	locator.global_position.y += -16
+	locator.global_position.y = GlobalSettings.cauldron_location.y
+	if current_grass and is_instance_valid(current_grass):
+		current_grass.ray_cast_2d.enabled = true
 	current_grass = null
 	
 
 
 func _on_grass_collection_timeout() -> void:
-	if inventory >= max_storage:
-		inventory_full()
+	if not is_instance_valid(current_grass):
 		grass_collection.stop()
+		return
+	if inventory >= max_storage:
+		grass_collection.stop()
+		inventory_full()
 	elif abs(current_grass.value) > 0:
 		if inventory < max_storage:
 			current_grass._collected(collection_factor)
 			inventory += 1
 			follow.position.y += 1
-			label.text = str(inventory) + "/5"
+			label.text = str(inventory)
 		else:
 			inventory_full()
 			grass_collection.stop()
@@ -120,6 +127,7 @@ func _on_grass_collection_timeout() -> void:
 	
 func inventory_full():
 	reset()
+	locator.global_position = GlobalSettings.cauldron_location
 	get_current_position(false)
 	
 func plant_fully_collected():
@@ -127,3 +135,18 @@ func plant_fully_collected():
 	reset()
 	get_current_position(true)
 	
+func deposit():
+	drop_off.amount = inventory
+	drop_off.emitting = true
+	SignalBus.emit_signal("deposited", inventory)
+	SignalBus.currency += inventory
+	inventory = 0
+	
+func _on_gpu_particles_2d_finished() -> void:
+	label.text = str(inventory)
+	reset()
+	get_current_position(true)
+
+
+func _on_area_2d_restart() -> void:
+	locator.global_position = GlobalSettings.cauldron_location

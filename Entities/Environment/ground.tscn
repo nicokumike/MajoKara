@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://y56dift1p0bn"]
+[gd_scene load_steps=14 format=3 uid="uid://y56dift1p0bn"]
 
 [ext_resource type="Script" uid="uid://h0xw8ngtc1ls" path="res://Entities/Environment/ground.gd" id="1_xacfp"]
 [ext_resource type="Texture2D" uid="uid://2h31g78o6wb1" path="res://Assets/Entities/Buildings/WitchHouseTest2.png" id="3_d6xj7"]
@@ -55,33 +55,6 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_rt06b"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_4e8f1"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_t6roi"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_pu4v3"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_6rse7"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_begxa"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_xcyc6"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_4k0v6"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_dh78g"]
-resource_local_to_scene = true
-
-[sub_resource type="Curve2D" id="Curve2D_74skp"]
 resource_local_to_scene = true
 
 [node name="Ground" type="Node2D"]
@@ -153,38 +126,78 @@ curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy2" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_4e8f1")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy3" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_t6roi")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy4" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_pu4v3")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy5" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_6rse7")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy6" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_begxa")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy7" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_xcyc6")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy8" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_4k0v6")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy9" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_dh78g")
+curve = SubResource("Curve2D_rt06b")
 
 [node name="MainFairy10" parent="." instance=ExtResource("8_rt06b")]
 position = Vector2(197.545, -16.565)
-curve = SubResource("Curve2D_74skp")
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy11" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy12" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy13" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy14" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy15" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy16" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy17" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy18" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy19" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
+
+[node name="MainFairy20" parent="." instance=ExtResource("8_rt06b")]
+position = Vector2(197.545, -16.565)
+curve = SubResource("Curve2D_rt06b")
 
 [connection signal="timeout" from="Forest/Timer" to="Forest/Planter" method="_on_timer_timeout"]

@@ -23,6 +23,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -1.0
 offset_top = 5.0
 offset_right = 39.0
@@ -31,4 +32,9 @@ scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_cpw0x")
 text = "0"
 
+[node name="ReActivate" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
 [connection signal="timeout" from="GrowClock" to="." method="_on_grow_clock_timeout"]
+[connection signal="timeout" from="ReActivate" to="." method="_on_re_activate_timeout"]

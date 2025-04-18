@@ -4,6 +4,7 @@ extends Node2D
 @onready var grow_clock: Timer = $GrowClock
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var label: Label = $Label
+@onready var re_activate: Timer = $ReActivate
 
 
 
@@ -35,6 +36,7 @@ func _ready() -> void:
 	grow_clock.start()
 	
 func _physics_process(_delta: float) -> void:
+	label.text = str(id)
 	if ray_cast_2d.is_colliding() == true:
 		var obj = ray_cast_2d.get_collider()
 		if obj.has_method("connect_fairy"):
@@ -49,7 +51,6 @@ func grow(growth_factor):
 	if growth_amnt >= maximum_growth:
 		line_2d.set_point_position(0, Vector2(0, growth_amnt))
 	else:
-		label.text = str(abs(value))
 		ray_cast_2d.enabled = true
 		#print(id)
 		grow_clock.stop()
@@ -59,6 +60,7 @@ func _on_grow_clock_timeout() -> void:
 	grow(randi_range(-1, -1))
 
 func _collected(collection_amnt):
+	re_activate.start()
 	if value < 0:
 		#print("!!! collect !!!")
 		growth_amnt += collection_amnt
@@ -69,5 +71,10 @@ func _collected(collection_amnt):
 		pass
 		#queue_free()
 func terminate():
-	SignalBus.emit_signal("collected")
+	SignalBus.emit_signal("collected", id)
 	queue_free()
+
+
+func _on_re_activate_timeout() -> void:
+	if ray_cast_2d.enabled == false:
+		ray_cast_2d.enabled = true
