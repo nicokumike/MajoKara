@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlwh5c5gsv5mw"]
+
+[ext_resource type="Script" uid="uid://ca1smuogpjw3t" path="res://UI/shop_button.gd" id="1_2r0xn"]
+[ext_resource type="Texture2D" uid="uid://bq74mwa4la5ir" path="res://Assets/UI/NinePatchBox.png" id="1_kgx6i"]
+[ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="2_2r0xn"]
+[ext_resource type="Texture2D" uid="uid://b6naotiyy4g02" path="res://Assets/UI/buttonline.png" id="3_78j6q"]
+[ext_resource type="Texture2D" uid="uid://df3jxdo3m0lk6" path="res://Assets/UI/MagicSymbol.png" id="4_jpem3"]
+[ext_resource type="Shader" uid="uid://7ot8sedo08mp" path="res://Assets/Shaders/color_inverter.gdshader" id="6_78j6q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jpem3"]
+shader = ExtResource("6_78j6q")
+shader_parameter/color_a = Color(1, 1, 1, 1)
+shader_parameter/color_b = Color(0.207843, 0.156863, 0.270588, 1)
+shader_parameter/tolerance = 0.05
+
+[node name="ShopButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2r0xn")
+
+[node name="Box" type="NinePatchRect" parent="."]
+layout_mode = 1
+offset_right = 2.0
+offset_bottom = 2.0
+texture = ExtResource("1_kgx6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Box/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="UpgradeName" type="Label" parent="Box/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 11.1)
+layout_mode = 2
+theme = ExtResource("2_2r0xn")
+text = "UN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="TextureRect" parent="Box/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_78j6q")
+stretch_mode = 2
+
+[node name="Amount" type="Label" parent="Box/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 11.1)
+layout_mode = 2
+theme = ExtResource("2_2r0xn")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator2" type="TextureRect" parent="Box/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_78j6q")
+stretch_mode = 2
+
+[node name="CurrencyType" type="TextureRect" parent="Box/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_jpem3")
+stretch_mode = 2
+
+[node name="Cost" type="Label" parent="Box/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 11.1)
+layout_mode = 2
+theme = ExtResource("2_2r0xn")
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Box"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Box"]
+visible = false
+material = SubResource("ShaderMaterial_jpem3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="Box/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Box/Button" to="." method="_on_button_mouse_exited"]

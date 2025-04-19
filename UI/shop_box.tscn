@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://da003q0mjwlyw"]
+
+[ext_resource type="Script" uid="uid://bns4l347nhjvi" path="res://UI/shop_box.gd" id="1_d6gws"]
+[ext_resource type="Texture2D" uid="uid://bq74mwa4la5ir" path="res://Assets/UI/NinePatchBox.png" id="2_q13w2"]
+[ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="3_q13w2"]
+
+[node name="ShopBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d6gws")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q13w2")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="ShopName" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_q13w2")
+text = "SN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="resized" from="NinePatchRect/MarginContainer/VBoxContainer/ShopName" to="." method="_on_label_resized"]
