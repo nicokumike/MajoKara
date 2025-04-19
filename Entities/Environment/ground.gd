@@ -39,18 +39,14 @@ func _on_witch_house_button_mouse_exited():
 	shop_box.deactivate()
 
 func _on_fairy_pond_button_mouse_entered():
-<<<<<<< Updated upstream
 	print("hallo")
 	var shopup = POPUP.instantiate()
 	add_child(shopup)
 	shopup.global_position = get_global_mouse_position()
-	
-=======
 	shop_box.initiate("Fairypond")
 	
 func _on_fairy_pond_button_mouse_exited():
 	shop_box.deactivate()
->>>>>>> Stashed changes
 
 func _on_ojamajo_birth_button_mouse_entered():
 	shop_box.initiate("Ojamajo Birth")

@@ -5,45 +5,39 @@ extends Control
 @onready var margin_container = $NinePatchRect/MarginContainer
 @onready var v_box_container = $NinePatchRect/MarginContainer/VBoxContainer
 @onready var shop_name = $NinePatchRect/MarginContainer/VBoxContainer/ShopName
-
-<<<<<<< Updated upstream
 @onready var BUTTON = preload("res://UI/shop_button.tscn")
 
 var amount_of_buttons : int
-
-func _set_buy_options():
-	var button = BUTTON.instantiate()
-	v_box_container.add_child(button)
-	button.upgrade_name.text = "POOOOOOOP"
-	resize()
-=======
 var active : bool = false
-var amount_of_buttons : int
+
+#func _set_buy_options():
+	#var button = BUTTON.instantiate()
+	#v_box_container.add_child(button)
+	#button.upgrade_name.text = "POOOOOOOP"
+	#resize()
 
 func set_buy_options(building_name : String):
 	var buy_options = ShopInformation.read_upgrades(building_name)
 	for item in buy_options:
 		pass
->>>>>>> Stashed changes
 
 func open_shop(building_name):
 	set_buy_options(building_name)
 	active = true
 
-<<<<<<< Updated upstream
 func _ready():
 	resize()
-	_set_buy_options()
+	#_set_buy_options()
 	
-func resize():
-	nine_patch_rect.pivot_offset.x = size.x / 2
-	nine_patch_rect.pivot_offset.y = size.y
-	self.pivot_offset.x = size.x / 2
-	self.pivot_offset.y = size.y
-	self.size = margin_container.size
-	self.custom_minimum_size = margin_container.size
-	nine_patch_rect.size = margin_container.size
-=======
+#func resize():
+	#nine_patch_rect.pivot_offset.x = size.x / 2
+	#nine_patch_rect.pivot_offset.y = size.y
+	#self.pivot_offset.x = size.x / 2
+	#self.pivot_offset.y = size.y
+	#self.size = margin_container.size
+	#self.custom_minimum_size = margin_container.size
+	#nine_patch_rect.size = margin_container.size
+	
 func resize():
 	self.size = margin_container.size
 	self.custom_minimum_size = margin_container.size
@@ -65,4 +59,3 @@ func deactivate():
 func _on_shop_name_resized():
 	if margin_container != null:
 		resize()
->>>>>>> Stashed changes
