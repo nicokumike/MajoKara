@@ -4,6 +4,7 @@ extends Node2D
 @onready var forest = $Forest
 @onready var planter = $Forest/Planter
 @onready var PLANT = preload("res://Entities/Plants/bulb_plant.tscn")
+@onready var POPUP = preload("res://UI/shop_box.tscn")
 @onready var cauldron: Sprite2D = $Cauldron
 
 
@@ -31,7 +32,11 @@ func _on_witch_house_button_mouse_entered():
 	pass # Replace with function body.
 
 func _on_fairy_pond_button_mouse_entered():
-	pass # Replace with function body.
+	print("hallo")
+	var shopup = POPUP.instantiate()
+	add_child(shopup)
+	shopup.global_position = get_global_mouse_position()
+	
 
 func _on_ojamajo_birth_button_mouse_entered():
 	pass # Replace with function body.
