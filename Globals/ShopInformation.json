@@ -1,0 +1,36 @@
+{
+	"Fairypond" : {
+		"Birth Fairy" : {
+			"amount": 0,
+			"type": "maho",
+			"cost": 0
+		},
+		"Increase Flight Speed" : {
+			"amount": 0,
+			"type": "maho",
+			"cost": 20
+		},
+		"Increase Carrying Capacity" : {
+			"amount": 0,
+			"type": "maho",
+			"cost": 10
+		},
+		"Increase Harvest Speed" : {
+			"amount": 0,
+			"type": "maho",
+			"cost": 30
+		},
+	},
+	"Ojamajo Birth" : {
+		
+	},
+	"Witch House" : {
+		
+	},
+	"Plant House" : {
+		
+	},
+	"Cauldron" : {
+		
+	},
+}

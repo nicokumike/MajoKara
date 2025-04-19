@@ -6,6 +6,7 @@ extends Node2D
 @onready var PLANT = preload("res://Entities/Plants/bulb_plant.tscn")
 @onready var POPUP = preload("res://UI/shop_box.tscn")
 @onready var cauldron: Sprite2D = $Cauldron
+@onready var shop_box = $ShopBox
 
 
 func _ready():
@@ -26,17 +27,39 @@ func _on_resize_timer_timeout():
 
 
 func _on_plants_house_button_mouse_entered():
-	pass # Replace with function body.
+	shop_box.initiate("Plants House")
+
+func _on_plants_house_button_mouse_exited():
+	shop_box.deactivate()
 
 func _on_witch_house_button_mouse_entered():
-	pass # Replace with function body.
+	shop_box.initiate("Witch House")
+
+func _on_witch_house_button_mouse_exited():
+	shop_box.deactivate()
 
 func _on_fairy_pond_button_mouse_entered():
+<<<<<<< Updated upstream
 	print("hallo")
 	var shopup = POPUP.instantiate()
 	add_child(shopup)
 	shopup.global_position = get_global_mouse_position()
 	
+=======
+	shop_box.initiate("Fairypond")
+	
+func _on_fairy_pond_button_mouse_exited():
+	shop_box.deactivate()
+>>>>>>> Stashed changes
 
 func _on_ojamajo_birth_button_mouse_entered():
-	pass # Replace with function body.
+	shop_box.initiate("Ojamajo Birth")
+
+func _on_ojamajo_birth_button_mouse_exited():
+	shop_box.deactivate()
+
+func _on_witch_house_button_pressed():
+	shop_box.open_shop("Witch House")
+
+func _on_fairy_pond_button_pressed():
+	shop_box.open_shop("Fairypond")

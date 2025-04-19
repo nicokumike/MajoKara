@@ -21,6 +21,7 @@ color = Color(0.207843, 0.156863, 0.270588, 1)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
+<<<<<<< Updated upstream
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -28,14 +29,21 @@ offset_left = -1.0
 offset_right = 1.0
 offset_bottom = 2.0
 grow_horizontal = 2
+=======
+offset_right = 2.0
+offset_bottom = 2.0
+>>>>>>> Stashed changes
 texture = ExtResource("2_q13w2")
 patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
 layout_mode = 1
+<<<<<<< Updated upstream
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,6 +51,10 @@ offset_top = -1.3275
 offset_bottom = 1.3275
 grow_horizontal = 2
 grow_vertical = 2
+=======
+offset_right = 22.0
+offset_bottom = 31.0
+>>>>>>> Stashed changes
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -58,4 +70,4 @@ text = "SN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="resized" from="NinePatchRect/MarginContainer/VBoxContainer/ShopName" to="." method="_on_label_resized"]
+[connection signal="resized" from="NinePatchRect/MarginContainer/VBoxContainer/ShopName" to="." method="_on_shop_name_resized"]

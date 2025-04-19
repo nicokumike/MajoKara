@@ -1,30 +1,17 @@
 extends Node
 
-var maho = load("res://Assets/UI/MagicSymbol.png")
+#var maho = load("res://Assets/UI/MagicSymbol.png")
+var types = {
+	maho = load("res://Assets/UI/MagicSymbol.png")
+}
 
-var fairypond = [
-	{
-		"name": "Birth Fairy",
-		"amount": 0,
-		"type": maho,
-		"cost": 0
-	},
-	{
-		"name": "Increase Flight Speed",
-		"amount": 0,
-		"type": maho,
-		"cost": 20
-	},
-	{
-		"name": "Increase Carrying Capacity",
-		"amount": 0,
-		"type": maho,
-		"cost": 10
-	},
-	{
-		"name": "Increase Harvest Speed",
-		"amount": 0,
-		"type": maho,
-		"cost": 30
-	}
-]
+#Upgrades
+var upgrades : Dictionary
+
+func _ready():
+	var file = "res://Globals/ShopInformation.json"
+	var json_as_text = FileAccess.get_file_as_string(file)
+	upgrades = JSON.parse_string(json_as_text)
+
+func read_upgrades(building_name : String):
+	return upgrades[building_name]

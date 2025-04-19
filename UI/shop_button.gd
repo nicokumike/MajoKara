@@ -8,18 +8,13 @@ extends Control
 @onready var margin_container = $Box/MarginContainer
 @onready var color_rect = $Box/ColorRect
 
-
 func _ready():
 	self.size = margin_container.size
 	self.custom_minimum_size = margin_container.size
 	box.size = margin_container.size
-	
-	
-
 
 func _on_button_mouse_entered():
 	color_rect.visible = true
-
 
 func _on_button_mouse_exited():
 	color_rect.visible = false
