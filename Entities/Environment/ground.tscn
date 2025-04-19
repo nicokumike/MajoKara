@@ -154,10 +154,22 @@ width = 2.0
 position = Vector2(-142, -65)
 texture = ExtResource("7_6rse7")
 
+[node name="PlantsHouseButton" type="Button" parent="Plantshouse"]
+offset_left = -64.0
+offset_top = -1.0
+offset_right = 63.0
+offset_bottom = 64.0
+
 [node name="WitchHouseTest" type="Sprite2D" parent="."]
 position = Vector2(134, -65)
 texture = ExtResource("3_d6xj7")
 hframes = 20
+
+[node name="WitchHouseButton" type="Button" parent="WitchHouseTest"]
+offset_left = -32.0
+offset_top = 18.0
+offset_right = 69.0
+offset_bottom = 64.0
 
 [node name="Cauldron" type="Sprite2D" parent="."]
 position = Vector2(198, -19)
@@ -287,8 +299,24 @@ material = SubResource("ShaderMaterial_xcyc6")
 position = Vector2(-19, -8)
 texture = ExtResource("11_begxa")
 
-[node name="Ojamajobirth" type="Sprite2D" parent="."]
+[node name="FairyPondButton" type="Button" parent="Fairypond"]
+offset_left = -52.0
+offset_top = 11.0
+offset_right = 61.0
+offset_bottom = 32.0
+
+[node name="OjamajoBirth" type="Sprite2D" parent="."]
 position = Vector2(-309, -65)
 texture = ExtResource("13_begxa")
 
+[node name="OjamajoBirthButton" type="Button" parent="OjamajoBirth"]
+offset_left = -63.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[connection signal="mouse_entered" from="Plantshouse/PlantsHouseButton" to="." method="_on_plants_house_button_mouse_entered"]
+[connection signal="mouse_entered" from="WitchHouseTest/WitchHouseButton" to="." method="_on_witch_house_button_mouse_entered"]
 [connection signal="timeout" from="Forest/Timer" to="Forest/Planter" method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="Fairypond/FairyPondButton" to="." method="_on_fairy_pond_button_mouse_entered"]
+[connection signal="mouse_entered" from="OjamajoBirth/OjamajoBirthButton" to="." method="_on_ojamajo_birth_button_mouse_entered"]

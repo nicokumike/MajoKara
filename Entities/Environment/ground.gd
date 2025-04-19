@@ -22,3 +22,16 @@ func _on_resize_timer_timeout():
 	SignalBus.ground_position.y = position.y
 	GlobalSettings.cauldron_location = cauldron.global_position
 	print(position.y)
+
+
+func _on_plants_house_button_mouse_entered():
+	pass # Replace with function body.
+
+func _on_witch_house_button_mouse_entered():
+	pass # Replace with function body.
+
+func _on_fairy_pond_button_mouse_entered():
+	pass # Replace with function body.
+
+func _on_ojamajo_birth_button_mouse_entered():
+	pass # Replace with function body.

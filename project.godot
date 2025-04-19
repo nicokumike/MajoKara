@@ -19,6 +19,7 @@ config/icon="uid://brxwmhx0my20x"
 
 GlobalSettings="*res://Globals/GlobalSettings.gd"
 SignalBus="*res://Globals/SignalBus.gd"
+ShopInformation="*res://Globals/ShopInformation.gd"
 
 [display]
 
