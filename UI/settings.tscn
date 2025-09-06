@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://bp63b4jst0q7r"]
 
 [ext_resource type="Texture2D" uid="uid://57coq20jjur2" path="res://Assets/UI/resize.png" id="1_fb0e8"]
-[ext_resource type="Script" uid="uid://b4el1pyodj2ha" path="res://UI/settings.gd" id="1_sxqi7"]
+[ext_resource type="Script" path="res://UI/settings.gd" id="1_sxqi7"]
 [ext_resource type="Texture2D" uid="uid://bq67khybdjo5t" path="res://Assets/UI/sound.png" id="2_lgafb"]
-[ext_resource type="Script" uid="uid://dolsklnn71gqq" path="res://UI/button_effects.gd" id="3_meugl"]
+[ext_resource type="Script" path="res://UI/button_effects.gd" id="3_meugl"]
 [ext_resource type="Texture2D" uid="uid://cg8l50j21y4f2" path="res://Assets/UI/save.png" id="3_ww78k"]
 [ext_resource type="Texture2D" uid="uid://cclwd7tetkape" path="res://Assets/UI/about.png" id="4_q4n24"]
 [ext_resource type="Texture2D" uid="uid://be1ar03gqvf0b" path="res://Assets/UI/quit.png" id="5_ba51m"]
@@ -578,7 +578,6 @@ rotation = -3.14159
 texture = ExtResource("8_qrduu")
 
 [node name="QuitSettings" type="Label" parent="Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

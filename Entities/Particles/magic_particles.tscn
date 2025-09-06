@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw2ahw7o31oq3"]
+
+[ext_resource type="Texture2D" uid="uid://d2hl2ihhgaec1" path="res://Assets/Entities/Effects/Level1MagicBuildParticles.png" id="1_ry43a"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0avtt"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8k7ho"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 1, 1)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+anim_offset_max = 1.0
+
+[node name="MagicParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_0avtt")
+amount = 30
+texture = ExtResource("1_ry43a")
+lifetime = 4.0
+speed_scale = 5.53
+process_material = SubResource("ParticleProcessMaterial_8k7ho")

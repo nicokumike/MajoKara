@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvpj225k0fuo4"]
+
+[ext_resource type="Shader" uid="uid://yy2lxh4ttid5" path="res://Assets/Shaders/CircleDotted.gdshader" id="1_ug0ar"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bujx"]
+shader = ExtResource("1_ug0ar")
+shader_parameter/radius = 0.38
+shader_parameter/border_width = 0.015
+shader_parameter/dash_length = 0.055
+shader_parameter/dash_gap = 0.045
+shader_parameter/speed = 0.1
+shader_parameter/border_color = Color(1, 1, 1, 1)
+
+[node name="CanvasLayer" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+mouse_target = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+material = SubResource("ShaderMaterial_4bujx")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -29.0
+offset_right = 29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

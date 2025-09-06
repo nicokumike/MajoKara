@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjhvmaqvcr34e"]
+
+[ext_resource type="Texture2D" uid="uid://b8e0x5t8ootn1" path="res://Assets/Entities/Buildings/WitchesHouse.png" id="1_iob3q"]
+[ext_resource type="Texture2D" uid="uid://dsjuxw42xww42" path="res://Assets/Entities/Buildings/LittleHouse.png" id="1_wpwg4"]
+
+[node name="WitchesHouse" type="Node2D"]
+
+[node name="WitchesHouse" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -64)
+texture = ExtResource("1_iob3q")
+
+[node name="LittleHouse" type="Sprite2D" parent="."]
+position = Vector2(2, -64)
+texture = ExtResource("1_wpwg4")
