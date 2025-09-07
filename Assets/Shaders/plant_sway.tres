@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://co8mgfin4au4t"]
+
+[ext_resource type="Shader" uid="uid://cl4wop6g786ws" path="res://Assets/Shaders/wind_sway.gdshader" id="1_b66xm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ylskv"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_b66xm")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)

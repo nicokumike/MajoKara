@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 @onready var planter = $"."
-@onready var PLANT = preload("res://Entities/Plants/magic_grass.tscn")
+@onready var PLANT = preload("res://Entities/Plants/Magriens/magrien.tscn")
 @onready var STOPPER = preload("res://Entities/Fairies/fairy_stopper.tscn")
 @onready var ground = $"../.."
 @onready var count = $"../../Count"
@@ -38,7 +38,7 @@ func _on_timer_timeout():
 			planter.progress = plant_point
 			var to_be_plant = PLANT.instantiate()
 			ground.add_child(to_be_plant)
-			to_be_plant.id = int(plant_point)
+			#to_be_plant.id = int(plant_point)
 			to_be_plant.global_position = planter.global_position
 			counted += 1
 	else:

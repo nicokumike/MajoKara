@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://xvvamvvcx6r2"]
+
+[ext_resource type="PackedScene" uid="uid://btkxqggbfohko" path="res://Entities/Plants/base_plant.tscn" id="1_g4ukq"]
+[ext_resource type="Shader" uid="uid://cl4wop6g786ws" path="res://Assets/Shaders/wind_sway.gdshader" id="2_adt4f"]
+[ext_resource type="Texture2D" uid="uid://c1ootsa62pdut" path="res://Assets/Entities/Plants/ThornBloomStalk.png" id="2_i3ddx"]
+[ext_resource type="Texture2D" uid="uid://c1y6dekp8y4pw" path="res://Assets/Entities/Plants/ThornBloomHead.png" id="4_6urp0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ylskv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3ddx"]
+resource_local_to_scene = true
+shader = ExtResource("2_adt4f")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[node name="ThornBloom" instance=ExtResource("1_g4ukq")]
+grow_complete_time = 30
+growth_chance_decay = 80
+
+[node name="PlantStalk" parent="." index="0"]
+texture = ExtResource("2_i3ddx")
+
+[node name="PlantHead" parent="." index="1"]
+material = SubResource("ShaderMaterial_i3ddx")
+texture = ExtResource("4_6urp0")

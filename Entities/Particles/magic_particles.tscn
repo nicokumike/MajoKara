@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw2ahw7o31oq3"]
+[gd_scene load_steps=15 format=3 uid="uid://dw2ahw7o31oq3"]
 
+[ext_resource type="Shader" uid="uid://ckgi6s6jrks28" path="res://Assets/Shaders/OutlineShader.gdshader" id="1_0avtt"]
 [ext_resource type="Texture2D" uid="uid://d2hl2ihhgaec1" path="res://Assets/Entities/Effects/Level1MagicBuildParticles.png" id="1_ry43a"]
+[ext_resource type="Texture2D" uid="uid://b7uekpdyt8560" path="res://Assets/Entities/Effects/Level1MagicBuildParticlesSmall.png" id="3_8k7ho"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8k7ho"]
+resource_local_to_scene = true
+shader = ExtResource("1_0avtt")
+shader_parameter/line_colour = Color(1, 0.435294, 0.686275, 1)
+shader_parameter/line_thickness = 5
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0avtt"]
 particles_animation = true
@@ -8,21 +16,85 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="Gradient" id="Gradient_0avtt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.435294, 0.686275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8k7ho"]
+gradient = SubResource("Gradient_0avtt")
+
+[sub_resource type="Curve" id="Curve_nbija"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.639706, 0.932584), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.382022, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8aumh"]
+curve = SubResource("Curve_nbija")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8k7ho"]
+resource_local_to_scene = true
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(50, 1, 1)
 angular_velocity_min = -50.0
 angular_velocity_max = 50.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_8aumh")
+color_ramp = SubResource("GradientTexture1D_8k7ho")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
 anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nbija"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_8aumh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.125, 0.719101), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ipt68"]
+curve = SubResource("Curve_8aumh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ipt68"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 30.0
+angular_velocity_min = -248.28
+angular_velocity_max = 157.24
+gravity = Vector3(0, 25, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_ipt68")
+anim_offset_max = 1.0
+collision_mode = 1
+collision_friction = 0.2
+collision_bounce = 0.18
 
 [node name="MagicParticles" type="Node2D"]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_8k7ho")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasGroup"]
 material = SubResource("CanvasItemMaterial_0avtt")
-amount = 30
+amount = 40
 texture = ExtResource("1_ry43a")
 lifetime = 4.0
 speed_scale = 5.53
 process_material = SubResource("ParticleProcessMaterial_8k7ho")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_nbija")
+amount = 25
+texture = ExtResource("3_8k7ho")
+lifetime = 3.0
+collision_base_size = 0.01
+visibility_rect = Rect2(-200, -100, 400, 100)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ipt68")

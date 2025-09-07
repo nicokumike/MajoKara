@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://4tk1ww7vag2g"]
+
+[ext_resource type="PackedScene" uid="uid://btkxqggbfohko" path="res://Entities/Plants/base_plant.tscn" id="1_2wkc5"]
+[ext_resource type="Texture2D" uid="uid://bwwbiysbvl6dv" path="res://Assets/Entities/Plants/MagriensStalkTest2.png" id="2_2hpo7"]
+[ext_resource type="Shader" uid="uid://cl4wop6g786ws" path="res://Assets/Shaders/wind_sway.gdshader" id="2_fregf"]
+[ext_resource type="Texture2D" uid="uid://bvdy2t56hf673" path="res://Assets/Entities/Plants/MagriensHead.png" id="4_68aiy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ylskv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hpo7"]
+resource_local_to_scene = true
+shader = ExtResource("2_fregf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[node name="Magrien" instance=ExtResource("1_2wkc5")]
+grow_complete_time = 2
+grow_time_tick = 0.25
+growth_chance_decay = 40
+
+[node name="PlantStalk" parent="." index="0"]
+texture = ExtResource("2_2hpo7")
+
+[node name="PlantHead" parent="." index="1"]
+material = SubResource("ShaderMaterial_2hpo7")
+texture = ExtResource("4_68aiy")

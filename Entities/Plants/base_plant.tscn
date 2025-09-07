@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://btkxqggbfohko"]
+
+[ext_resource type="Material" uid="uid://co8mgfin4au4t" path="res://Assets/Shaders/plant_sway.tres" id="1_b741a"]
+[ext_resource type="Script" uid="uid://chf3jlccvgxav" path="res://Entities/Plants/base_plant.gd" id="1_ivrt2"]
+[ext_resource type="Texture2D" uid="uid://uorvvvpd3se7" path="res://Assets/Entities/Plants/MadellionStalkTest2.png" id="2_1hwfm"]
+[ext_resource type="Texture2D" uid="uid://fhpfbsa67b3a" path="res://Assets/Entities/Plants/MadellionHead.png" id="3_ylskv"]
+[ext_resource type="Texture2D" uid="uid://boxbdi58eu0ye" path="res://Assets/Entities/Effects/GrowLeavesParticles.png" id="5_b741a"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u7i42"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_b741a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.161765, 0.539326), 0.0, 0.0, 0, 0, Vector2(0.367647, 1), 0.0, 0.0, 0, 0, Vector2(0.536765, 0.516854), 0.0, 0.0, 0, 0, Vector2(0.705882, 1), 0.0, 0.0, 0, 0, Vector2(0.852941, 0.539326), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_u7i42"]
+curve_x = SubResource("Curve_b741a")
+
+[sub_resource type="Curve" id="Curve_wdo78"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.823529, 0.820225), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f52fb"]
+curve = SubResource("Curve_wdo78")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gwfo4"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_max = 25.0
+angular_velocity_min = -49.65
+angular_velocity_max = 41.38
+directional_velocity_min = -10.0
+directional_velocity_max = 9.99998
+directional_velocity_curve = SubResource("CurveXYZTexture_u7i42")
+gravity = Vector3(0, 20, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+damping_max = 15.517
+scale_curve = SubResource("CurveTexture_f52fb")
+anim_offset_max = 1.0
+collision_mode = 1
+collision_friction = 0.03
+collision_bounce = 0.0
+
+[node name="BasePlant" type="Node2D"]
+script = ExtResource("1_ivrt2")
+growth_chance_decay = 10
+superior_genes_hit = 1
+
+[node name="PlantStalk" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 0)
+width = 16.0
+texture = ExtResource("2_1hwfm")
+texture_mode = 1
+
+[node name="PlantHead" type="Sprite2D" parent="."]
+visible = false
+material = ExtResource("1_b741a")
+texture = ExtResource("3_ylskv")
+offset = Vector2(0, -8)
+
+[node name="GrowFinish" type="GPUParticles2D" parent="PlantHead"]
+material = SubResource("CanvasItemMaterial_u7i42")
+emitting = false
+amount = 2
+texture = ExtResource("5_b741a")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.99
+randomness = 1.0
+collision_base_size = 0.01
+process_material = SubResource("ParticleProcessMaterial_gwfo4")
+
+[node name="GrowTick" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="GrowthComplete" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="GrowTick" to="." method="_on_grow_tick_timeout"]
+[connection signal="timeout" from="GrowthComplete" to="." method="_on_growth_complete_timeout"]

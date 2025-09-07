@@ -1,0 +1,651 @@
+[gd_scene load_steps=42 format=3 uid="uid://byhbputqwk3w7"]
+
+[ext_resource type="PackedScene" uid="uid://btkxqggbfohko" path="res://Entities/Plants/base_plant.tscn" id="1_uoha8"]
+[ext_resource type="Texture2D" uid="uid://bwwbiysbvl6dv" path="res://Assets/Entities/Plants/MagriensStalkTest2.png" id="2_f56el"]
+[ext_resource type="Shader" uid="uid://cl4wop6g786ws" path="res://Assets/Shaders/wind_sway.gdshader" id="3_876pf"]
+[ext_resource type="Texture2D" uid="uid://c1ootsa62pdut" path="res://Assets/Entities/Plants/ThornBloomStalk.png" id="5_ta3pp"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ylskv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtrv0"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y7mnx"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_belk5"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k44wg"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yq6vk"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uoha8"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eodfd"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f56el"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm8yx"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_876pf"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xphc0"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_do2dj"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uve5r"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ta3pp"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i8gq5"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_odbf4"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjlng"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0cc7"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mx132"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jx4w"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xlbop"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_811d2"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ptllt"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wo5o"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1snum"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rm60k"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndlkb"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuobe"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xtwx"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5j2wi"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_extf6"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s42qq"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmebf"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2x6u"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhlwh"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqm2b"]
+resource_local_to_scene = true
+shader = ExtResource("3_876pf")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ylskv")
+shader_parameter/amplitude = 0.3
+shader_parameter/time_scale = 0.07
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 1.0
+shader_parameter/rotation_pivot = Vector2(0.5, 1)
+
+[node name="Test" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -30)
+zoom = Vector2(5, 5)
+
+[node name="BasePlant2" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_vtrv0")
+position = Vector2(-40, 0)
+grow_complete_time = 7
+grow_time_tick = 0.15
+growth_chance_decay = 20
+
+[node name="PlantStalk" parent="BasePlant2" index="0"]
+texture = ExtResource("2_f56el")
+
+[node name="PlantHead" parent="BasePlant2" index="1"]
+material = SubResource("ShaderMaterial_y7mnx")
+
+[node name="BasePlant8" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_belk5")
+position = Vector2(-32, 0)
+grow_complete_time = 7
+grow_time_tick = 0.15
+growth_chance_decay = 20
+
+[node name="PlantStalk" parent="BasePlant8" index="0"]
+texture = ExtResource("2_f56el")
+
+[node name="PlantHead" parent="BasePlant8" index="1"]
+material = SubResource("ShaderMaterial_k44wg")
+
+[node name="BasePlant9" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_yq6vk")
+position = Vector2(-24, 0)
+grow_complete_time = 7
+grow_time_tick = 0.15
+growth_chance_decay = 20
+
+[node name="PlantStalk" parent="BasePlant9" index="0"]
+texture = ExtResource("2_f56el")
+
+[node name="PlantHead" parent="BasePlant9" index="1"]
+material = SubResource("ShaderMaterial_uoha8")
+
+[node name="BasePlant" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_eodfd")
+grow_complete_time = 10
+grow_time_tick = 0.25
+
+[node name="PlantHead" parent="BasePlant" index="1"]
+material = SubResource("ShaderMaterial_f56el")
+
+[node name="BasePlant6" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_cm8yx")
+position = Vector2(8, 0)
+grow_complete_time = 10
+grow_time_tick = 0.25
+
+[node name="PlantHead" parent="BasePlant6" index="1"]
+material = SubResource("ShaderMaterial_876pf")
+
+[node name="BasePlant7" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_xphc0")
+position = Vector2(-8, 0)
+grow_complete_time = 10
+grow_time_tick = 0.25
+
+[node name="PlantHead" parent="BasePlant7" index="1"]
+material = SubResource("ShaderMaterial_do2dj")
+
+[node name="BasePlant3" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_uve5r")
+position = Vector2(40, 0)
+grow_complete_time = 13
+grow_time_tick = 0.1
+superior_genes_hit = 2
+
+[node name="PlantStalk" parent="BasePlant3" index="0"]
+texture = ExtResource("5_ta3pp")
+
+[node name="PlantHead" parent="BasePlant3" index="1"]
+material = SubResource("ShaderMaterial_ta3pp")
+
+[node name="BasePlant4" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_i8gq5")
+position = Vector2(32, 0)
+grow_complete_time = 13
+grow_time_tick = 0.5
+growth_chance_decay = 8
+superior_genes_hit = 2
+
+[node name="PlantStalk" parent="BasePlant4" index="0"]
+texture = ExtResource("5_ta3pp")
+
+[node name="PlantHead" parent="BasePlant4" index="1"]
+material = SubResource("ShaderMaterial_odbf4")
+
+[node name="BasePlant5" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_cjlng")
+position = Vector2(24, 0)
+grow_complete_time = 13
+grow_time_tick = 0.25
+growth_chance_decay = 8
+superior_genes_hit = 2
+
+[node name="PlantStalk" parent="BasePlant5" index="0"]
+texture = ExtResource("5_ta3pp")
+
+[node name="PlantHead" parent="BasePlant5" index="1"]
+material = SubResource("ShaderMaterial_w0cc7")
+
+[node name="BasePlant10" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_mx132")
+position = Vector2(-44, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 7
+grow_time_tick = 0.15
+growth_chance_decay = 20
+
+[node name="PlantStalk" parent="BasePlant10" index="0"]
+texture = ExtResource("2_f56el")
+
+[node name="PlantHead" parent="BasePlant10" index="1"]
+material = SubResource("ShaderMaterial_4jx4w")
+
+[node name="BasePlant11" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_xlbop")
+position = Vector2(-36, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 7
+grow_time_tick = 0.15
+growth_chance_decay = 20
+
+[node name="PlantStalk" parent="BasePlant11" index="0"]
+texture = ExtResource("2_f56el")
+
+[node name="PlantHead" parent="BasePlant11" index="1"]
+material = SubResource("ShaderMaterial_811d2")
+
+[node name="BasePlant12" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_ptllt")
+position = Vector2(-28, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 7
+grow_time_tick = 0.15
+growth_chance_decay = 20
+
+[node name="PlantStalk" parent="BasePlant12" index="0"]
+texture = ExtResource("2_f56el")
+
+[node name="PlantHead" parent="BasePlant12" index="1"]
+material = SubResource("ShaderMaterial_6wo5o")
+
+[node name="BasePlant13" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_1snum")
+position = Vector2(-4, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 10
+grow_time_tick = 0.25
+
+[node name="PlantHead" parent="BasePlant13" index="1"]
+material = SubResource("ShaderMaterial_rm60k")
+
+[node name="BasePlant14" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_ndlkb")
+position = Vector2(4, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 10
+grow_time_tick = 0.25
+
+[node name="PlantHead" parent="BasePlant14" index="1"]
+material = SubResource("ShaderMaterial_nuobe")
+
+[node name="BasePlant15" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_4xtwx")
+position = Vector2(-12, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 10
+grow_time_tick = 0.25
+
+[node name="PlantHead" parent="BasePlant15" index="1"]
+material = SubResource("ShaderMaterial_5j2wi")
+
+[node name="BasePlant16" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_extf6")
+position = Vector2(36, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 13
+grow_time_tick = 0.1
+superior_genes_hit = 2
+
+[node name="PlantStalk" parent="BasePlant16" index="0"]
+texture = ExtResource("5_ta3pp")
+
+[node name="PlantHead" parent="BasePlant16" index="1"]
+material = SubResource("ShaderMaterial_s42qq")
+
+[node name="BasePlant17" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_gmebf")
+position = Vector2(28, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 13
+grow_time_tick = 0.5
+growth_chance_decay = 8
+superior_genes_hit = 2
+
+[node name="PlantStalk" parent="BasePlant17" index="0"]
+texture = ExtResource("5_ta3pp")
+
+[node name="PlantHead" parent="BasePlant17" index="1"]
+material = SubResource("ShaderMaterial_s2x6u")
+
+[node name="BasePlant18" parent="." instance=ExtResource("1_uoha8")]
+material = SubResource("ShaderMaterial_mhlwh")
+position = Vector2(20, 0)
+scale = Vector2(-1, 1)
+grow_complete_time = 13
+grow_time_tick = 0.25
+growth_chance_decay = 8
+superior_genes_hit = 2
+
+[node name="PlantStalk" parent="BasePlant18" index="0"]
+texture = ExtResource("5_ta3pp")
+
+[node name="PlantHead" parent="BasePlant18" index="1"]
+material = SubResource("ShaderMaterial_bqm2b")
+
+[editable path="BasePlant2"]
+[editable path="BasePlant8"]
+[editable path="BasePlant9"]
+[editable path="BasePlant"]
+[editable path="BasePlant6"]
+[editable path="BasePlant7"]
+[editable path="BasePlant3"]
+[editable path="BasePlant4"]
+[editable path="BasePlant5"]
+[editable path="BasePlant10"]
+[editable path="BasePlant11"]
+[editable path="BasePlant12"]
+[editable path="BasePlant13"]
+[editable path="BasePlant14"]
+[editable path="BasePlant15"]
+[editable path="BasePlant16"]
+[editable path="BasePlant17"]
+[editable path="BasePlant18"]
