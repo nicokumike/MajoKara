@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://j7iofcnse2g4"]
+
+[ext_resource type="Shader" uid="uid://wygknn0i55cw" path="res://Assets/Shaders/WobbleText.gdshader" id="1_vciwn"]
+[ext_resource type="FontFile" uid="uid://d03nag4x0j415" path="res://Assets/Fonts/tempus-sans-itc.ttf" id="2_6h4n3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gjje"]
+shader = ExtResource("1_vciwn")
+shader_parameter/jitter_strength = 0.876
+shader_parameter/jitter_speed = 3.007
+shader_parameter/jitter_frequency = 3.029
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 0.955
+shader_parameter/rotation_speed = 1.109
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.055
+shader_parameter/scale_speed = 0.72
+shader_parameter/scale_frequency = 3.316
+shader_parameter/base_scale = 0.5
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 1.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 0.5
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 4.549
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(782, 217)
+
+[node name="Label2" type="Label" parent="SubViewportContainer/SubViewport"]
+texture_filter = 3
+material = SubResource("ShaderMaterial_2gjje")
+offset_left = 77.0
+offset_top = 11.0
+offset_right = 1454.0
+offset_bottom = 333.0
+theme_override_fonts/font = ExtResource("2_6h4n3")
+theme_override_font_sizes/font_size = 246
+text = "Skip Tutorial?"

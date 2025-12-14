@@ -79,18 +79,30 @@ anchor_right = 1.0
 offset_left = -95.0
 offset_bottom = 26.0
 grow_horizontal = 0
-theme_override_constants/margin_left = -10
+theme_override_constants/margin_left = -20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(100, 16)
+layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-alignment = 1
+alignment = 2
+
+[node name="UiScaleButton2" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qrduu")
+ignore_texture_size = true
+script = ExtResource("3_meugl")
 
 [node name="UiScaleButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
 texture_normal = ExtResource("1_fb0e8")
@@ -102,6 +114,7 @@ script = ExtResource("3_meugl")
 
 [node name="SoundButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
 texture_normal = ExtResource("2_lgafb")
@@ -113,6 +126,7 @@ script = ExtResource("3_meugl")
 
 [node name="SaveButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
 texture_normal = ExtResource("3_ww78k")
@@ -124,6 +138,7 @@ script = ExtResource("3_meugl")
 
 [node name="InfoButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
 texture_normal = ExtResource("4_q4n24")
@@ -135,6 +150,7 @@ script = ExtResource("3_meugl")
 
 [node name="QuitButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_qrduu")
 texture_normal = ExtResource("5_ba51m")
@@ -295,7 +311,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_opicb")
 
 [node name="BoxTail" type="Sprite2D" parent="Control/SoundSettings"]
-position = Vector2(51, -1)
+position = Vector2(45, -1)
 rotation = -3.14159
 texture = ExtResource("8_qrduu")
 
@@ -599,6 +615,8 @@ vertical_alignment = 1
 visible_characters = 0
 visible_ratio = 0.0
 
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/UiScaleButton2" to="." method="_on_ui_scale_button_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/HBoxContainer/UiScaleButton2" to="Control/MarginContainer/HBoxContainer/UiScaleButton2" method="_on_toggled"]
 [connection signal="toggled" from="Control/MarginContainer/HBoxContainer/UiScaleButton" to="." method="_on_ui_scale_button_toggled"]
 [connection signal="toggled" from="Control/MarginContainer/HBoxContainer/UiScaleButton" to="Control/MarginContainer/HBoxContainer/UiScaleButton" method="_on_toggled"]
 [connection signal="toggled" from="Control/MarginContainer/HBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]

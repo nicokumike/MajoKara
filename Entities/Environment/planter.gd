@@ -13,13 +13,14 @@ var max_forest_size = 200
 var used_numbers = []
 
 func _ready() -> void:
-	SignalBus.connect("collected", plant_collected)
-	planter.progress = 0
-	var stopper_spawn = STOPPER.instantiate()
-	ground.add_child.call_deferred(stopper_spawn)
-	stopper_spawn.global_position = planter.global_position
-	stopper_spawn.position.x += 20
-	timer.start()
+	pass
+	#SignalBus.connect("collected", plant_collected)
+	#planter.progress = 0
+	#var stopper_spawn = STOPPER.instantiate()
+	#ground.add_child.call_deferred(stopper_spawn)
+	#stopper_spawn.global_position = planter.global_position
+	#stopper_spawn.position.x += 20
+	#timer.start()
 	
 func plant_collected(id):
 	if id in used_numbers:

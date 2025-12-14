@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ow42u8tprkq"]
+
+[ext_resource type="Texture2D" uid="uid://cvubd5ux4mc0" path="res://Assets/Entities/Characters/SimpleGirl.png" id="1_afcmt"]
+[ext_resource type="Script" uid="uid://b0svjgayybfe0" path="res://Entities/Environment/wife_human.gd" id="1_jr3u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jr3u7"]
+size = Vector2(6, 10)
+
+[node name="WifeHuman" type="CharacterBody2D"]
+script = ExtResource("1_jr3u7")
+
+[node name="SimpleGirl" type="Sprite2D" parent="."]
+texture = ExtResource("1_afcmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_jr3u7")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(4, 0)
+target_position = Vector2(4, 13)

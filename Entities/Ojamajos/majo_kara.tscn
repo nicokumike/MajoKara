@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://t7lvjopw166u"]
+
+[ext_resource type="Texture2D" uid="uid://dlot1vbhnuh4d" path="res://Assets/Entities/Characters/MajoKara.png" id="1_2jq8d"]
+
+[node name="MajoKara" type="Sprite2D"]
+position = Vector2(0, -11)
+texture = ExtResource("1_2jq8d")

@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c54736gwc731w"]
+[gd_scene load_steps=7 format=3 uid="uid://c54736gwc731w"]
 
 [ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="1_3dm0a"]
-[ext_resource type="Script" uid="uid://dmejjs8wf103c" path="res://UI/quit_button.gd" id="1_t8cj6"]
+[ext_resource type="Script" path="res://UI/quit_button.gd" id="1_t8cj6"]
 [ext_resource type="Texture2D" uid="uid://bq74mwa4la5ir" path="res://Assets/UI/NinePatchBox.png" id="2_t8cj6"]
+[ext_resource type="Texture2D" uid="uid://cvmvfrnhr57rp" path="res://Assets/UI/MajoTitle.png" id="4_4jidq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jidq"]
 bg_color = Color(0.207843, 0.156863, 0.270588, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jidq"]
 
 [node name="QuitButtonChild" type="Control"]
 layout_mode = 3
@@ -114,6 +117,18 @@ offset_right = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="MajoTitle" type="TextureRect" parent="VBoxContainer/QuitSettings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_top = -201.0
+offset_right = 131.0
+offset_bottom = 55.0
+grow_horizontal = 2
+texture = ExtResource("4_4jidq")
+
 [node name="QuitSettings2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -158,6 +173,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4jidq")
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/QuitSettings2/MarginContainer/NinePatchRect"]
 visible = false
+material = SubResource("ShaderMaterial_4jidq")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

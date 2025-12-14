@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://coals5d42dy5e"]
+[gd_scene load_steps=8 format=3 uid="uid://coals5d42dy5e"]
 
 [ext_resource type="PackedScene" uid="uid://y56dift1p0bn" path="res://Entities/Environment/ground.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://ca2sradfan2sr" path="res://UI/camera_base.tscn" id="2_7mycd"]
@@ -6,11 +6,13 @@
 [ext_resource type="Script" uid="uid://knxl6lss52tg" path="res://currency.gd" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://df3jxdo3m0lk6" path="res://Assets/UI/MagicSymbol.png" id="4_lquwl"]
 [ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://df0hjllri6ncv" path="res://UI/title_screen.tscn" id="7_272bh"]
 
 [node name="Main" type="Node2D"]
 
 [node name="CameraBase" parent="." instance=ExtResource("2_7mycd")]
-position = Vector2(320, 180)
+position = Vector2(4289, -72)
+zoom = Vector2(4, 4)
 limit_bottom = 1188
 
 [node name="Ground" parent="." instance=ExtResource("1_lquwl")]
@@ -24,6 +26,7 @@ one_shot = true
 [node name="Settings" parent="CanvasLayer" instance=ExtResource("4_1bvp3")]
 
 [node name="Currency" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,6 +68,8 @@ theme = ExtResource("5_7mycd")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Title" parent="CanvasLayer" instance=ExtResource("7_272bh")]
 
 [connection signal="timeout" from="Resize_Timer" to="CameraBase" method="_on_resize_timer_timeout"]
 [connection signal="timeout" from="Resize_Timer" to="Ground" method="_on_resize_timer_timeout"]

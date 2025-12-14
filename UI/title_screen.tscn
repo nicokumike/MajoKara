@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://df0hjllri6ncv"]
+[gd_scene load_steps=8 format=3 uid="uid://df0hjllri6ncv"]
 
 [ext_resource type="Theme" uid="uid://g8abk264gjw4" path="res://Assets/UI/Themes/label.tres" id="1_iaef4"]
+[ext_resource type="Script" uid="uid://dk6do80htgxtt" path="res://UI/title_screen.gd" id="1_udsnl"]
+[ext_resource type="Texture2D" uid="uid://cvmvfrnhr57rp" path="res://Assets/UI/MajoTitle.png" id="2_5whv5"]
 [ext_resource type="Texture2D" uid="uid://bq74mwa4la5ir" path="res://Assets/UI/NinePatchBox.png" id="2_coop4"]
+[ext_resource type="Shader" uid="uid://7ot8sedo08mp" path="res://Assets/Shaders/color_inverter.gdshader" id="3_816ia"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5whv5"]
 bg_color = Color(0.207843, 0.156863, 0.270588, 1)
 
-[node name="Control" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_816ia"]
+shader = ExtResource("3_816ia")
+shader_parameter/color_a = Color(0.207843, 0.156863, 0.270588, 1)
+shader_parameter/color_b = Color(1, 1, 1, 1)
+shader_parameter/tolerance = 0.05
+
+[node name="Title" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -15,6 +24,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_udsnl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -31,19 +42,22 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(47, 33)
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("1_iaef4")
-theme_override_font_sizes/font_size = 38
-text = "MajoKara"
+texture = ExtResource("2_5whv5")
+expand_mode = 1
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/Label"]
 modulate = Color(0.983333, 1, 0, 1)
 layout_mode = 0
-offset_left = 66.0
-offset_top = 26.5
-offset_right = 120.0
-offset_bottom = 47.5
+offset_left = 74.0
+offset_top = 65.5
+offset_right = 128.0
+offset_bottom = 86.5
 rotation = -0.244346
 text = "prototype"
 
@@ -71,9 +85,9 @@ offset_right = 11.5
 offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = -5
-theme_override_constants/margin_top = -5
-theme_override_constants/margin_right = -5
+theme_override_constants/margin_left = -8
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = -10
 theme_override_constants/margin_bottom = -4
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/QuitSettings2/MarginContainer"]
@@ -111,3 +125,24 @@ grow_vertical = 2
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_816ia")
+layout_mode = 0
+offset_left = -18.0
+offset_top = 40.0
+offset_right = 21.0
+offset_bottom = 56.0
+mouse_filter = 2
+
+[node name="Start" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -19.0
+offset_top = 39.0
+offset_right = 22.0
+offset_bottom = 57.0
+
+[connection signal="mouse_entered" from="Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="Start" to="." method="_on_start_mouse_exited"]

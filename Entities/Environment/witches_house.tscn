@@ -1,15 +1,346 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjhvmaqvcr34e"]
+[gd_scene load_steps=23 format=3 uid="uid://cjhvmaqvcr34e"]
 
 [ext_resource type="Texture2D" uid="uid://b8e0x5t8ootn1" path="res://Assets/Entities/Buildings/WitchesHouse.png" id="1_iob3q"]
+[ext_resource type="Shader" uid="uid://dl1kmvwlka5il" path="res://Assets/Shaders/Transition.gdshader" id="1_qobhf"]
 [ext_resource type="Texture2D" uid="uid://dsjuxw42xww42" path="res://Assets/Entities/Buildings/LittleHouse.png" id="1_wpwg4"]
+[ext_resource type="PackedScene" uid="uid://dw2ahw7o31oq3" path="res://Entities/Particles/magic_particles.tscn" id="4_b8hb4"]
+[ext_resource type="Shader" uid="uid://ckgi6s6jrks28" path="res://Assets/Shaders/OutlineShader.gdshader" id="5_ljj6d"]
+[ext_resource type="PackedScene" uid="uid://c6ow42u8tprkq" path="res://Entities/Environment/wife_human.tscn" id="6_ljj6d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj8vh"]
+resource_local_to_scene = true
+shader = ExtResource("1_qobhf")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(0, -1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8hb4"]
+resource_local_to_scene = true
+shader = ExtResource("1_qobhf")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(0, -1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_hmshs"]
+resource_name = "Build_House"
+length = 6.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LittleHouse:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WitchesHouse:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MagicParticles:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -125), Vector2(0, -132.81)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MagicParticles/CanvasGroup/GPUParticles2D:process_material:emission_box_extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.49, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(30, 1, 1), Vector3(30, 1, 1), Vector3(13.725, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MagicParticles/CanvasGroup/GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MagicParticles/GPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qtntn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LittleHouse:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WitchesHouse:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MagicParticles:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MagicParticles/CanvasGroup/GPUParticles2D:process_material:emission_box_extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(50, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MagicParticles/CanvasGroup/GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MagicParticles/GPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1m6o7"]
+_data = {
+&"Build_House": SubResource("Animation_hmshs"),
+&"RESET": SubResource("Animation_qtntn")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2wud"]
+resource_local_to_scene = true
+shader = ExtResource("5_ljj6d")
+shader_parameter/line_colour = Color(1, 0.435294, 0.686275, 1)
+shader_parameter/line_thickness = 5
+
+[sub_resource type="Gradient" id="Gradient_0avtt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.435294, 0.686275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8k7ho"]
+gradient = SubResource("Gradient_0avtt")
+
+[sub_resource type="Curve" id="Curve_nbija"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.639706, 0.932584), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.382022, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8aumh"]
+curve = SubResource("Curve_nbija")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cfvwr"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 1, 1)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_8aumh")
+color_ramp = SubResource("GradientTexture1D_8k7ho")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+anim_offset_max = 1.0
+
+[sub_resource type="Curve" id="Curve_8aumh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.125, 0.719101), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ipt68"]
+curve = SubResource("Curve_8aumh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1v4ae"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 30.0
+angular_velocity_min = -248.28
+angular_velocity_max = 157.24
+gravity = Vector3(0, 25, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_ipt68")
+anim_offset_max = 1.0
+collision_mode = 1
+collision_friction = 0.2
+collision_bounce = 0.18
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8hb4"]
+size = Vector2(10, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljj6d"]
+size = Vector2(517, 10)
 
 [node name="WitchesHouse" type="Node2D"]
 
 [node name="WitchesHouse" type="Sprite2D" parent="."]
-visible = false
+material = SubResource("ShaderMaterial_pj8vh")
 position = Vector2(2, -64)
 texture = ExtResource("1_iob3q")
 
 [node name="LittleHouse" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_b8hb4")
 position = Vector2(2, -64)
 texture = ExtResource("1_wpwg4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1m6o7")
+}
+
+[node name="MagicParticles" parent="." instance=ExtResource("4_b8hb4")]
+
+[node name="CanvasGroup" parent="MagicParticles" index="0"]
+material = SubResource("ShaderMaterial_o2wud")
+
+[node name="GPUParticles2D" parent="MagicParticles/CanvasGroup" index="0"]
+emitting = false
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_cfvwr")
+
+[node name="GPUParticles2D" parent="MagicParticles" index="1"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_1v4ae")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -88)
+zoom = Vector2(1.66, 1.66)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(3, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_b8hb4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(8, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_b8hb4")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(13, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_b8hb4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(104.5, 5)
+shape = SubResource("RectangleShape2D_ljj6d")
+
+[node name="WifeHuman" parent="." instance=ExtResource("6_ljj6d")]
+visible = false
+position = Vector2(1, -23)
+
+[editable path="MagicParticles"]
